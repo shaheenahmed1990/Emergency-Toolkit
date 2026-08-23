@@ -385,7 +385,7 @@ document.getElementById("gcsInterpretation").textContent =
 
 
 // ================================
-// GCS CARD
+// CALCULATOR CARDS
 // ================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -396,16 +396,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const title = card.querySelector("strong");
 
-        if (
-            title &&
-            title.textContent.trim() === "GCS"
-        ) {
+        if (!title) return;
 
-            card.addEventListener(
-                "click",
-                openGCSCalculator
-            );
+        const name = title.textContent.trim();
 
+        // GCS
+        if (name === "GCS") {
+            card.addEventListener("click", openGCSCalculator);
+        }
+
+        // NEWS2
+        if (name === "NEWS2") {
+            card.addEventListener("click", openNEWS2Calculator);
         }
 
     });
