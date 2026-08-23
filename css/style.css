@@ -1240,3 +1240,169 @@ footer span {
         padding: 18px;
     }
 }
+/* =================================
+   Major Trauma
+   ================================= */
+
+.trauma-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px;
+}
+
+.trauma-modal {
+    width: min(820px, 100%);
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+    color: #17202a;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.4);
+}
+
+.trauma-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 22px 24px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.trauma-header h2 {
+    margin: 0;
+}
+
+.trauma-header p {
+    margin: 5px 0 0;
+    color: #64748b;
+}
+
+.trauma-close {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #eef2f7;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+.trauma-body {
+    padding: 24px;
+}
+
+.trauma-alert {
+    padding: 16px;
+
+    margin-bottom: 20px;
+
+    background: #fff4e5;
+
+    border-left: 5px solid #f59e0b;
+
+    border-radius: 10px;
+}
+
+.trauma-alert p {
+    margin: 6px 0 0;
+}
+
+.trauma-section {
+    margin-top: 24px;
+}
+
+.trauma-section h3 {
+    margin-bottom: 10px;
+}
+
+.trauma-section ul {
+    padding-left: 22px;
+}
+
+.trauma-section li {
+    margin: 6px 0;
+}
+
+.trauma-card {
+    padding: 16px;
+
+    background: #f8fafc;
+
+    border-radius: 12px;
+}
+
+.trauma-card.critical {
+    background: #fff1f2;
+    border-left: 5px solid #dc2626;
+}
+
+.trauma-card.emergency {
+    background: #fff7ed;
+    border-left: 5px solid #ea580c;
+}
+
+.trauma-card.reassess {
+    background: #eff6ff;
+    border-left: 5px solid #2563eb;
+}
+
+.trauma-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+.trauma-note {
+    margin-top: 24px;
+
+    padding: 16px;
+
+    background: #f8fafc;
+
+    color: #64748b;
+
+    border-radius: 10px;
+
+    font-size: 0.85rem;
+}
+
+.trauma-note p {
+    margin: 5px 0 0;
+}
+
+@media (max-width: 600px) {
+
+    .trauma-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trauma-body {
+        padding: 18px;
+    }
+
+    .trauma-header {
+        padding: 18px;
+    }
+}
