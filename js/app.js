@@ -152,6 +152,10 @@ function openGCSCalculator() {
                         <input type="radio" name="gcsVerbal" value="1">
                         1 — None
                     </label>
+                    <label>
+    <input type="radio" name="gcsVerbal" value="NT">
+    NT — Not testable
+</label>
 
                 </div>
 
@@ -261,8 +265,9 @@ function openGCSCalculator() {
 
     document.getElementById("gcsTotal").textContent = "—";
 
-    document.getElementById("gcsBreakdown").textContent =
-        "E —   V —   M —";
+document.getElementById("gcsBreakdown")
+    .textContent =
+    `E${E} V${V} M${M}`;
 
     document.getElementById("gcsInterpretation").textContent =
         "Select all three components";
@@ -330,8 +335,8 @@ if (verbalValue === "NT") {
 
     document.getElementById("gcsTotal").textContent = "NT";
 
-    document.getElementById("gcsBreakdown").textContent =
-        `E ${E} + V NT + M ${M}`;
+document.getElementById("gcsBreakdown").textContent =
+    `E${E} VNT M${M}`;
 
     document.getElementById("gcsInterpretation").textContent =
         "Verbal response not testable — total GCS cannot be calculated.";
