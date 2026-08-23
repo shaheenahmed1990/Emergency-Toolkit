@@ -1,0 +1,409 @@
+// ========================================
+// ABG / Acid-Base Calculator
+// ========================================
+
+function openABGCalculator() {
+
+    const existing = document.getElementById("abgModal");
+
+    if (existing) {
+        existing.remove();
+    }
+
+    const modal = document.createElement("div");
+    modal.id = "abgModal";
+
+    modal.innerHTML = `
+        <div class="abg-overlay">
+
+            <div class="abg-modal">
+
+                <div class="abg-header">
+                    <div>
+                        <h2>🫁 ABG / Acid–Base Calculator</h2>
+                        <p>Arterial blood gas analysis</p>
+                    </div>
+
+                    <button id="closeABG" class="abg-close">
+                        ×
+                    </button>
+                </div>
+
+                <div class="abg-body">
+
+                    <div class="abg-grid">
+
+                        <div class="abg-field">
+                            <label for="abgPH">pH</label>
+                            <input
+                                id="abgPH"
+                                type="number"
+                                min="6.5"
+                                max="8"
+                                step="0.01"
+                                placeholder="7.40"
+                            >
+                        </div>
+
+                        <div class="abg-field">
+                            <label for="abgPCO2">
+                                PaCO₂
+                                <span>mmHg</span>
+                            </label>
+                            <input
+                                id="abgPCO2"
+                                type="number"
+                                min="5"
+                                max="150"
+                                step="1"
+                                placeholder="40"
+                            >
+                        </div>
+
+                        <div class="abg-field">
+                            <label for="abgHCO3">
+                                HCO₃⁻
+                                <span>mmol/L</span>
+                            </label>
+                            <input
+                                id="abgHCO3"
+                                type="number"
+                                min="1"
+                                max="60"
+                                step="0.1"
+                                placeholder="24"
+                            >
+                        </div>
+
+                        <div class="abg-field">
+                            <label for="abgPaO2">
+                                PaO₂
+                                <span>mmHg</span>
+                            </label>
+                            <input
+                                id="abgPaO2"
+                                type="number"
+                                min="1"
+                                max="500"
+                                step="1"
+                                placeholder="100"
+                            >
+                        </div>
+
+                        <div class="abg-field">
+                            <label for="abgNa">
+                                Na⁺
+                                <span>mmol/L</span>
+                            </label>
+                            <input
+                                id="abgNa"
+                                type="number"
+                                min="80"
+                                max="220"
+                                step="1"
+                                placeholder="140"
+                            >
+                        </div>
+
+                        <div class="abg-field">
+                            <label for="abgCl">
+                                Cl⁻
+                                <span>mmol/L</span>
+                            </label>
+                            <input
+                                id="abgCl"
+                                type="number"
+                                min="40"
+                                max="180"
+                                step="1"
+                                placeholder="105"
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="abg-result">
+
+                        <div class="abg-result-row">
+                            <span>Anion Gap</span>
+                            <strong id="abgAG">—</strong>
+                        </div>
+
+                        <div class="abg-result-row">
+                            <span>Primary disorder</span>
+                            <strong id="abgPrimary">—</strong>
+                        </div>
+
+                        <div class="abg-result-row">
+                            <span>Compensation</span>
+                            <strong id="abgCompensation">—</strong>
+                        </div>
+
+                        <div class="abg-result-row">
+                            <span>PaO₂</span>
+                            <strong id="abgOxygen">—</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="abg-note">
+                        <strong>Clinical note:</strong>
+                        <p>
+                            This calculator is an adjunct to clinical
+                            interpretation and should not replace
+                            bedside assessment or local protocols.
+                        </p>
+                    </div>
+
+
+                    <div class="abg-actions">
+
+                        <button
+                            id="resetABG"
+                            class="abg-reset"
+                        >
+                            Reset
+                        </button>
+
+                        <button
+                            id="calculateABG"
+                            class="abg-calculate"
+                        >
+                            Analyze ABG
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+
+    // Close
+    document
+        .getElementById("closeABG")
+        .addEventListener("click", () => {
+            modal.remove();
+        });
+
+
+    // Calculate
+    document
+        .getElementById("calculateABG")
+        .addEventListener(
+            "click",
+            calculateABG
+        );
+
+
+    // Reset
+    document
+        .getElementById("resetABG")
+        .addEventListener("click", () => {
+
+            modal.querySelectorAll("input").forEach(input => {
+                input.value = "";
+            });
+
+            document.getElementById("abgAG").textContent = "—";
+            document.getElementById("abgPrimary").textContent = "—";
+            document.getElementById("abgCompensation").textContent = "—";
+            document.getElementById("abgOxygen").textContent = "—";
+        });
+
+}
+
+
+// ========================================
+// ABG Analysis
+// ========================================
+
+function calculateABG() {
+
+    const pH = Number(
+        document.getElementById("abgPH").value
+    );
+
+    const pCO2 = Number(
+        document.getElementById("abgPCO2").value
+    );
+
+    const HCO3 = Number(
+        document.getElementById("abgHCO3").value
+    );
+
+    const pO2 = Number(
+        document.getElementById("abgPaO2").value
+    );
+
+    const Na = Number(
+        document.getElementById("abgNa").value
+    );
+
+    const Cl = Number(
+        document.getElementById("abgCl").value
+    );
+
+
+    if (
+        !pH ||
+        !pCO2 ||
+        !HCO3 ||
+        !pO2 ||
+        !Na ||
+        !Cl
+    ) {
+
+        alert(
+            "Please complete all ABG values."
+        );
+
+        return;
+    }
+
+
+    // ----------------------------
+    // Anion Gap
+    // ----------------------------
+
+    const anionGap =
+        Na - (Cl + HCO3);
+
+
+    document.getElementById("abgAG")
+        .textContent =
+        anionGap.toFixed(1);
+
+
+    // ----------------------------
+    // Primary disorder
+    // ----------------------------
+
+    let primary;
+
+    if (pH < 7.35) {
+
+        if (HCO3 < 22 && pCO2 <= 40) {
+            primary = "Metabolic acidosis";
+        }
+        else if (pCO2 > 45 && HCO3 >= 22) {
+            primary = "Respiratory acidosis";
+        }
+        else {
+            primary = "Acidaemia — mixed or partially compensated disorder";
+        }
+
+    }
+    else if (pH > 7.45) {
+
+        if (HCO3 > 26 && pCO2 >= 40) {
+            primary = "Metabolic alkalosis";
+        }
+        else if (pCO2 < 35 && HCO3 <= 26) {
+            primary = "Respiratory alkalosis";
+        }
+        else {
+            primary = "Alkalaemia — mixed or partially compensated disorder";
+        }
+
+    }
+    else {
+
+        primary =
+            "pH within reference range — assess for compensated or mixed disorder";
+    }
+
+
+    document.getElementById("abgPrimary")
+        .textContent = primary;
+
+
+    // ----------------------------
+    // Compensation
+    // ----------------------------
+
+    let compensation =
+        "No specific compensation formula applied.";
+
+
+    // Winter's formula
+    // For metabolic acidosis:
+    //
+    // Expected PaCO2 =
+    // 1.5 × HCO3 + 8 ± 2
+
+    if (pH < 7.35 && HCO3 < 22) {
+
+        const expectedPCO2 =
+            (1.5 * HCO3) + 8;
+
+        const lower =
+            expectedPCO2 - 2;
+
+        const upper =
+            expectedPCO2 + 2;
+
+
+        if (
+            pCO2 >= lower &&
+            pCO2 <= upper
+        ) {
+
+            compensation =
+                `Appropriate respiratory compensation. Expected PaCO₂ ${expectedPCO2.toFixed(1)} ±2 mmHg`;
+
+        }
+        else if (pCO2 < lower) {
+
+            compensation =
+                `Additional respiratory alkalosis. Expected PaCO₂ ${expectedPCO2.toFixed(1)} ±2 mmHg`;
+
+        }
+        else {
+
+            compensation =
+                `Additional respiratory acidosis. Expected PaCO₂ ${expectedPCO2.toFixed(1)} ±2 mmHg`;
+
+        }
+    }
+
+
+    document.getElementById("abgCompensation")
+        .textContent = compensation;
+
+
+    // ----------------------------
+    // Oxygen
+    // ----------------------------
+
+    let oxygen;
+
+    if (pO2 < 60) {
+
+        oxygen =
+            "Low PaO₂";
+
+    }
+    else if (pO2 <= 100) {
+
+        oxygen =
+            "Within typical range";
+
+    }
+    else {
+
+        oxygen =
+            "Elevated PaO₂";
+    }
+
+
+    document.getElementById("abgOxygen")
+        .textContent = oxygen;
+}

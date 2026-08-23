@@ -415,4 +415,9 @@ document.addEventListener("click", (event) => {
         return;
     }
 
+    if (name === "ABG") {
+        openABGCalculator();
+        return;
+    }
+
 });
