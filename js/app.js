@@ -420,4 +420,57 @@ document.addEventListener("click", (event) => {
         return;
     }
 
+}
+// ================================
+// TOOL CARD ROUTING
+// ================================
+
+document.addEventListener("click", (event) => {
+
+    const card = event.target.closest(".tool-card");
+
+    if (!card) return;
+
+    const title = card.querySelector("strong");
+
+    if (!title) return;
+
+    const name = title.textContent.trim();
+
+    if (name === "GCS") {
+        openGCSCalculator();
+        return;
+    }
+
+    if (name === "NEWS2") {
+        openNEWS2Calculator();
+        return;
+    }
+
+    if (name === "Shock Index") {
+        openShockIndexCalculator();
+        return;
+    }
+
+    if (name === "ABG") {
+        openABGCalculator();
+        return;
+    }
+
+    if (name === "Cardiac Arrest") {
+        openCardiacArrest();
+        return;
+    }
+});
+document.addEventListener("DOMContentLoaded", () => {
+
+    const cardiacCard = [...document.querySelectorAll(".tool-card")]
+        .find(card =>
+            card.querySelector("strong")?.textContent.trim() === "Cardiac Arrest"
+        );
+
+    if (cardiacCard) {
+        cardiacCard.addEventListener("click", openCardiacArrest);
+    }
+
 });
