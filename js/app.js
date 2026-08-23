@@ -388,28 +388,31 @@ document.getElementById("gcsInterpretation").textContent =
 // CALCULATOR CARDS
 // ================================
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("click", (event) => {
 
-    const cards = document.querySelectorAll(".tool-card");
+    const card = event.target.closest(".tool-card");
 
-    cards.forEach(card => {
+    if (!card) return;
 
-        const title = card.querySelector("strong");
+    const title = card.querySelector("strong");
 
-        if (!title) return;
+    if (!title) return;
 
-        const name = title.textContent.trim();
+    const name = title.textContent.trim();
 
-        // GCS
-        if (name === "GCS") {
-            card.addEventListener("click", openGCSCalculator);
-        }
+    if (name === "GCS") {
+        openGCSCalculator();
+        return;
+    }
 
-        // NEWS2
-        if (name === "NEWS2") {
-            card.addEventListener("click", openNEWS2Calculator);
-        }
+    if (name === "NEWS2") {
+        openNEWS2Calculator();
+        return;
+    }
 
-    });
+    if (name === "Shock Index") {
+        openShockIndexCalculator();
+        return;
+    }
 
 });
