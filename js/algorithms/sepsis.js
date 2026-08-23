@@ -1,0 +1,277 @@
+// ========================================
+// Adult Sepsis Quick Reference
+// Surviving Sepsis Campaign
+// ========================================
+
+function openSepsis() {
+
+    const existing = document.getElementById("sepsisModal");
+
+    if (existing) {
+        existing.remove();
+    }
+
+    const modal = document.createElement("div");
+
+    modal.id = "sepsisModal";
+
+    modal.innerHTML = `
+        <div class="sepsis-overlay">
+
+            <div class="sepsis-modal">
+
+                <div class="sepsis-header">
+
+                    <div>
+                        <h2>🦠 Adult Sepsis</h2>
+                        <p>Recognition & Management Quick Reference</p>
+                    </div>
+
+                    <button
+                        id="closeSepsis"
+                        class="sepsis-close"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <div class="sepsis-body">
+
+                    <div class="sepsis-alert">
+                        <strong>Sepsis is a medical emergency.</strong>
+                        <p>
+                            Recognise infection with acute organ
+                            dysfunction and escalate assessment
+                            and treatment promptly.
+                        </p>
+                    </div>
+
+
+                    <section class="sepsis-section">
+
+                        <h3>1. Recognise & assess</h3>
+
+                        <ul>
+                            <li>Suspect or identify an infectious source.</li>
+                            <li>Assess airway, breathing and circulation.</li>
+                            <li>Assess mental status and peripheral perfusion.</li>
+                            <li>Review blood pressure, heart rate, respiratory rate and SpO₂.</li>
+                            <li>Use an appropriate local sepsis screening pathway.</li>
+                        </ul>
+
+                    </section>
+
+
+                    <section class="sepsis-section">
+
+                        <h3>2. Initial investigations</h3>
+
+                        <div class="sepsis-card">
+
+                            <ul>
+                                <li>Measure lactate.</li>
+                                <li>Obtain blood cultures as early as practical.</li>
+                                <li>FBC / CBC.</li>
+                                <li>U&E / renal function.</li>
+                                <li>LFTs when clinically indicated.</li>
+                                <li>Coagulation profile when indicated.</li>
+                                <li>Obtain source-directed microbiology.</li>
+                            </ul>
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="sepsis-section">
+
+                        <h3>3. Antimicrobial therapy</h3>
+
+                        <div class="sepsis-card urgent">
+
+                            <strong>Do not delay treatment in septic shock.</strong>
+
+                            <ul>
+                                <li>
+                                    Start appropriate antimicrobials promptly
+                                    when septic shock is present.
+                                </li>
+                                <li>
+                                    In sepsis without shock, determine the
+                                    likelihood of infection and initiate
+                                    antimicrobials promptly when infection
+                                    is likely.
+                                </li>
+                                <li>
+                                    Obtain cultures before antimicrobials
+                                    when this does not cause a meaningful delay.
+                                </li>
+                                <li>
+                                    Tailor therapy to the suspected source,
+                                    local resistance patterns and patient factors.
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="sepsis-section">
+
+                        <h3>4. Initial fluid resuscitation</h3>
+
+                        <div class="sepsis-card fluid">
+
+                            <strong>Crystalloid is first-line.</strong>
+
+                            <ul>
+                                <li>
+                                    For sepsis-induced hypoperfusion or
+                                    septic shock, consider at least
+                                    30 mL/kg crystalloid within the initial
+                                    3 hours, with frequent reassessment.
+                                </li>
+                                <li>
+                                    Balanced crystalloids are generally
+                                    preferred over 0.9% saline when appropriate.
+                                </li>
+                                <li>
+                                    Avoid giving fluid blindly: reassess
+                                    perfusion and response after each bolus.
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="sepsis-section">
+
+                        <h3>5. Reassess perfusion</h3>
+
+                        <ul>
+                            <li>Blood pressure and MAP.</li>
+                            <li>Capillary refill / peripheral perfusion.</li>
+                            <li>Urine output.</li>
+                            <li>Mental status.</li>
+                            <li>Serial lactate when clinically useful.</li>
+                            <li>Use dynamic measures of fluid responsiveness when appropriate.</li>
+                        </ul>
+
+                    </section>
+
+
+                    <section class="sepsis-section">
+
+                        <h3>6. Persistent hypotension / septic shock</h3>
+
+                        <div class="sepsis-card vasopressor">
+
+                            <strong>Vasopressor strategy</strong>
+
+                            <ol>
+                                <li>
+                                    Norepinephrine — first-line vasopressor.
+                                </li>
+                                <li>
+                                    Add vasopressin when norepinephrine
+                                    requirements are increasing or
+                                    additional support is needed.
+                                </li>
+                                <li>
+                                    Consider epinephrine when additional
+                                    vasopressor support is required.
+                                </li>
+                            </ol>
+
+                            <p>
+                                Initial MAP target is approximately
+                                <strong>65 mmHg</strong> for most adults,
+                                adjusted to the clinical context.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+                    <section class="sepsis-section">
+
+                        <h3>7. Source control</h3>
+
+                        <ul>
+                            <li>Identify a source requiring intervention.</li>
+                            <li>
+                                Achieve source control as soon as medically
+                                and logistically practical.
+                            </li>
+                            <li>
+                                Coordinate with surgery, interventional
+                                radiology or other procedural teams when required.
+                            </li>
+                        </ul>
+
+                    </section>
+
+
+                    <section class="sepsis-section">
+
+                        <h3>8. Ongoing management</h3>
+
+                        <ul>
+                            <li>Review antimicrobial therapy and narrow when appropriate.</li>
+                            <li>Reassess fluid balance continuously.</li>
+                            <li>Monitor organ function.</li>
+                            <li>Escalate to critical care when indicated.</li>
+                        </ul>
+
+                    </section>
+
+
+                    <div class="sepsis-note">
+
+                        <strong>Clinical safety note</strong>
+
+                        <p>
+                            This is a point-of-care reference tool,
+                            not a substitute for bedside assessment,
+                            local antimicrobial guidance, or institutional
+                            sepsis protocols.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+
+    document
+        .getElementById("closeSepsis")
+        .addEventListener("click", () => {
+            modal.remove();
+        });
+
+
+    document
+        .querySelector(".sepsis-overlay")
+        .addEventListener("click", (event) => {
+
+            if (
+                event.target.classList.contains("sepsis-overlay")
+            ) {
+                modal.remove();
+            }
+
+        });
+
+}
