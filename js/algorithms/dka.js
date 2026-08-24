@@ -175,7 +175,43 @@ function openDKA() {
 
                     <section class="dka-section">
 
-                        <h3>5. Fluid resuscitation</h3>
+    <h3>5. Fluid resuscitation</h3>
+
+    <div class="dka-card emergency">
+
+        <strong>Restore circulating volume first.</strong>
+
+        <ul>
+            <li>
+                Use isotonic saline or a balanced crystalloid according
+                to haemodynamic status and local protocol.
+            </li>
+
+            <li>
+                In adults without significant cardiac or renal impairment,
+                an initial rate of approximately 500–1000 mL/hour for
+                the first 2–4 hours may be appropriate.
+            </li>
+
+            <li>
+                Reassess blood pressure, perfusion, urine output,
+                electrolytes and fluid balance frequently.
+            </li>
+
+            <li>
+                Use smaller fluid boluses and closer monitoring when
+                significant heart failure, kidney failure or other
+                fluid-overload risk is present.
+            </li>
+
+            <li>
+                Avoid unnecessary fluid overload.
+            </li>
+        </ul>
+
+    </div>
+
+</section>
 
                         <div class="dka-card emergency">
 
@@ -199,77 +235,85 @@ function openDKA() {
 
                     <section class="dka-section">
 
-                        <h3>6. Insulin therapy</h3>
+    <h3>6. Insulin therapy</h3>
 
-                        <div class="dka-card">
+    <div class="dka-card">
 
-                            <strong>Insulin stops ketogenesis.</strong>
+        <strong>Insulin stops ketogenesis.</strong>
 
-                            <ul>
-                                <li>
-                                    Fixed-rate IV insulin infusion is the standard
-                                    approach for significant adult DKA under a
-                                    validated local protocol.
-                                </li>
+        <ul>
+            <li>
+                Start fixed-rate IV insulin at approximately
+                0.1 units/kg/hour according to the validated local DKA protocol.
+            </li>
 
-                                <li>
-                                    Continue insulin until the ketoacidosis has
-                                    resolved, not simply until glucose normalises.
-                                </li>
+            <li>
+                Continue insulin until ketoacidosis has resolved,
+                not simply until plasma glucose normalises.
+            </li>
 
-                                <li>
-                                    Glucose-containing fluid may be required as
-                                    plasma glucose falls so that insulin can
-                                    continue safely to clear ketones.
-                                </li>
+            <li>
+                When glucose falls below approximately 250 mg/dL
+                (13.9 mmol/L), add dextrose-containing fluid as required
+                so that insulin can continue until ketonaemia resolves.
+            </li>
 
-                                <li>
-                                    Continue appropriate basal insulin when
-                                    clinically indicated and according to the
-                                    patient's established regimen.
-                                </li>
-                            </ul>
+            <li>
+                Once glucose has fallen and ketosis is improving,
+                insulin may be reduced to approximately 0.05 units/kg/hour
+                according to the clinical and biochemical response.
+            </li>
 
-                        </div>
+            <li>
+                Continue appropriate basal insulin when clinically indicated
+                and according to the patient's established regimen.
+            </li>
+        </ul>
 
-                    </section>
+    </div>
+
+</section>
 
 
                     <section class="dka-section">
 
-                        <h3>7. Potassium</h3>
+    <h3>7. Potassium</h3>
 
-                        <div class="dka-card critical">
+    <div class="dka-card critical">
 
-                            <strong>Potassium management is essential.</strong>
+        <strong>Potassium management is essential.</strong>
 
-                            <ul>
-                                <li>
-                                    Total body potassium is usually depleted
-                                    even when the initial serum potassium
-                                    appears normal or high.
-                                </li>
+        <ul>
+            <li>
+                Total body potassium is usually depleted even when
+                the initial serum potassium appears normal or high.
+            </li>
 
-                                <li>
-                                    Monitor serum potassium frequently during
-                                    treatment.
-                                </li>
+            <li>
+                Monitor serum potassium frequently during treatment.
+            </li>
 
-                                <li>
-                                    Replace potassium according to the measured
-                                    serum concentration and the local DKA protocol.
-                                </li>
+            <li>
+                If potassium is below approximately 3.5 mmol/L,
+                delay insulin therapy while potassium replacement is started
+                according to the local DKA protocol.
+            </li>
 
-                                <li>
-                                    Avoid starting insulin when potassium is
-                                    dangerously low until potassium replacement
-                                    has been addressed according to protocol.
-                                </li>
-                            </ul>
+            <li>
+                Replace potassium during insulin therapy according to
+                the measured serum concentration, aiming to maintain
+                potassium approximately 4–5 mmol/L.
+            </li>
 
-                        </div>
+            <li>
+                Use continuous ECG monitoring when significant
+                potassium disturbance is present.
+            </li>
+        </ul>
 
-                    </section>
+    </div>
+
+</section>
 
 
                     <section class="dka-section">
@@ -311,47 +355,70 @@ function openDKA() {
 
                     <section class="dka-section">
 
-                        <h3>9. Monitoring</h3>
+    <h3>9. Monitoring</h3>
 
-                        <div class="dka-card">
+    <div class="dka-card">
 
-                            <ul>
-                                <li>Monitor capillary glucose frequently.</li>
-                                <li>Monitor blood ketones where available.</li>
-                                <li>Repeat venous blood gas / bicarbonate according to protocol.</li>
-                                <li>Monitor potassium and other electrolytes closely.</li>
-                                <li>Monitor fluid balance and urine output.</li>
-                                <li>Reassess neurological status regularly.</li>
-                            </ul>
+        <ul>
+            <li>
+                Monitor capillary glucose every 1–2 hours during active treatment.
+            </li>
 
-                        </div>
+            <li>
+                Monitor blood β-hydroxybutyrate where available.
+            </li>
 
-                    </section>
+            <li>
+                Repeat electrolytes, creatinine, β-hydroxybutyrate and
+                venous pH approximately every 4 hours until DKA resolves.
+            </li>
+
+            <li>
+                Monitor potassium closely during insulin therapy.
+            </li>
+
+            <li>
+                Monitor fluid balance and urine output.
+            </li>
+
+            <li>
+                Reassess neurological status and haemodynamic condition regularly.
+            </li>
+        </ul>
+
+    </div>
+
+</section>
 
 
                     <section class="dka-section">
 
-                        <h3>10. Resolution of DKA</h3>
+    <h3>10. Resolution of DKA</h3>
 
-                        <div class="dka-card reassess">
+    <div class="dka-card reassess">
 
-                            <strong>Do not use glucose alone to determine resolution.</strong>
+        <strong>Do not use glucose alone to determine resolution.</strong>
 
-                            <p>
-                                Contemporary consensus defines resolution by
-                                clearance of ketonaemia together with recovery
-                                of acid-base status. Blood β-hydroxybutyrate
-                                is preferred over urine ketones for monitoring.
-                            </p>
+        <p>
+            DKA is considered resolved when blood β-hydroxybutyrate
+            is <strong>0.6 mmol/L</strong> and venous pH is
+            <strong>≥ 7.3</strong> or bicarbonate is
+            <strong>≥ 18 mmol/L</strong>.
+        </p>
 
-                            <p>
-                                Do not use the anion gap alone as the primary
-                                resolution criterion.
-                            </p>
+        <p>
+            Continue insulin until ketoacidosis has resolved even after
+            plasma glucose has normalised.
+        </p>
 
-                        </div>
+        <p>
+            Do not use urine ketones or the anion gap alone as the primary
+            measure of DKA resolution when blood β-hydroxybutyrate is available.
+        </p>
 
-                    </section>
+    </div>
+
+</section>
 
 
                     <section class="dka-section">
