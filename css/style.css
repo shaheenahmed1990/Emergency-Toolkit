@@ -1919,3 +1919,167 @@ footer span {
         padding: 18px;
     }
 }
+/* =================================
+   Emergency Disability
+   ================================= */
+
+.disability-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px;
+}
+
+.disability-modal {
+    width: min(820px, 100%);
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+    color: #17202a;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.4);
+}
+
+.disability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 22px 24px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.disability-header h2 {
+    margin: 0;
+}
+
+.disability-header p {
+    margin: 5px 0 0;
+    color: #64748b;
+}
+
+.disability-close {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #eef2f7;
+
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.disability-body {
+    padding: 24px;
+}
+
+.disability-alert {
+    padding: 16px;
+    margin-bottom: 20px;
+
+    background: #fff4e5;
+    border-left: 5px solid #f59e0b;
+
+    border-radius: 10px;
+}
+
+.disability-alert p {
+    margin: 6px 0 0;
+}
+
+.disability-section {
+    margin-top: 24px;
+}
+
+.disability-section h3 {
+    margin-bottom: 10px;
+}
+
+.disability-section ul,
+.disability-section ol {
+    padding-left: 22px;
+}
+
+.disability-section li {
+    margin: 6px 0;
+}
+
+.disability-card {
+    padding: 16px;
+
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+.disability-card.critical {
+    background: #fff1f2;
+    border-left: 5px solid #dc2626;
+}
+
+.disability-card.emergency {
+    background: #fff7ed;
+    border-left: 5px solid #ea580c;
+}
+
+.disability-card.warning {
+    background: #fff4e5;
+    border-left: 5px solid #f59e0b;
+}
+
+.disability-card.reassess {
+    background: #ecfdf5;
+    border-left: 5px solid #16a34a;
+}
+
+.disability-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.disability-note {
+    margin-top: 24px;
+
+    padding: 16px;
+
+    background: #f8fafc;
+    color: #64748b;
+
+    border-radius: 10px;
+
+    font-size: 0.85rem;
+}
+
+.disability-note p {
+    margin: 5px 0 0;
+}
+
+@media (max-width: 600px) {
+
+    .disability-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .disability-body {
+        padding: 18px;
+    }
+
+    .disability-header {
+        padding: 18px;
+    }
+}
