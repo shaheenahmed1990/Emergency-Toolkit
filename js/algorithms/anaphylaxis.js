@@ -159,29 +159,29 @@ function openAnaphylaxis() {
 
                     <section class="anaphylaxis-section">
 
-                        <h3>4. Position</h3>
+    <h3>4. Position</h3>
 
-                        <div class="anaphylaxis-grid">
+    <div class="anaphylaxis-grid">
 
-                            <div class="anaphylaxis-card">
-                                <strong>Hypotension / shock</strong>
-                                <p>
-                                    Lay the patient flat and consider
-                                    leg elevation when appropriate.
-                                </p>
-                            </div>
+        <div class="anaphylaxis-card">
+            <strong>Hypotension / shock</strong>
+            <p>
+                Lay the patient flat with the legs elevated when appropriate.
+                Do not allow the patient to stand or walk suddenly.
+            </p>
+        </div>
 
-                            <div class="anaphylaxis-card">
-                                <strong>Breathing difficulty</strong>
-                                <p>
-                                    Allow a position that supports breathing,
-                                    while avoiding sudden standing or walking.
-                                </p>
-                            </div>
+        <div class="anaphylaxis-card">
+            <strong>Breathing difficulty</strong>
+            <p>
+                Allow the patient to adopt a position that supports breathing,
+                while avoiding sudden standing or walking.
+            </p>
+        </div>
 
-                        </div>
+    </div>
 
-                    </section>
+</section>
 
 
                     <section class="anaphylaxis-section">
@@ -211,27 +211,32 @@ function openAnaphylaxis() {
 
                     <section class="anaphylaxis-section">
 
-                        <h3>6. Persistent symptoms</h3>
+    <h3>6. Persistent symptoms</h3>
 
-                        <div class="anaphylaxis-card warning">
+    <div class="anaphylaxis-card warning">
 
-                            <p>
-                                If airway, breathing or circulation problems
-                                persist despite appropriate IM adrenaline,
-                                escalate urgently and follow the refractory
-                                anaphylaxis pathway.
-                            </p>
+        <p>
+            If airway, breathing or circulation problems persist despite
+            appropriate IM adrenaline, treat as refractory anaphylaxis
+            and escalate urgently.
+        </p>
 
-                            <ul>
-                                <li>Call experienced airway / critical care support.</li>
-                                <li>Continue monitoring and repeat IM adrenaline when indicated.</li>
-                                <li>Prepare advanced resuscitation support.</li>
-                                <li>Follow the specialist refractory anaphylaxis protocol.</li>
-                            </ul>
+        <ul>
+            <li>Call experienced airway / critical care support.</li>
+            <li>
+                Repeat IM adrenaline after 5 minutes when indicated
+                if airway, breathing or circulation problems persist.
+            </li>
+            <li>Prepare advanced resuscitation support.</li>
+            <li>
+                After two appropriate IM doses without adequate response,
+                follow the specialist refractory anaphylaxis pathway.
+            </li>
+        </ul>
 
-                        </div>
+    </div>
 
-                    </section>
+</section>
 
 
                     <section class="anaphylaxis-section">
@@ -257,20 +262,30 @@ function openAnaphylaxis() {
 
                     <section class="anaphylaxis-section">
 
-                        <h3>8. After initial treatment</h3>
+    <h3>8. After initial treatment</h3>
 
-                        <div class="anaphylaxis-card reassess">
+    <div class="anaphylaxis-card reassess">
 
-                            <ul>
-                                <li>Continue clinical monitoring and reassessment.</li>
-                                <li>Consider observation according to clinical severity and local protocol.</li>
-                                <li>Document the suspected trigger and treatment given.</li>
-                                <li>Arrange appropriate allergy / specialist follow-up when indicated.</li>
-                            </ul>
+        <ul>
+            <li>Continue clinical monitoring and reassessment.</li>
+            <li>
+                Consider observation according to clinical severity
+                and local protocol.
+            </li>
+            <li>Document the suspected trigger and treatment given.</li>
+            <li>
+                Consider appropriate mast-cell tryptase sampling
+                according to the current local / specialist protocol.
+            </li>
+            <li>
+                Arrange appropriate allergy / specialist follow-up
+                when indicated.
+            </li>
+        </ul>
 
-                        </div>
+    </div>
 
-                    </section>
+</section>
 
 
                     <div class="anaphylaxis-note">
