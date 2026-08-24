@@ -112,49 +112,64 @@ function openEmergencyDrugs() {
 
                         <div class="drug-card">
 
-                            <div class="drug-title">
-                                <strong>Adenosine</strong>
-                                <span>Regular narrow-complex tachycardia</span>
-                            </div>
+    <div class="drug-title">
+        <strong>Adenosine</strong>
+        <span>Regular narrow-complex tachycardia</span>
+    </div>
 
-                            <p>
-                                <strong>Adult dose:</strong>
-                                6 mg rapid IV bolus.
-                            </p>
+    <p>
+        Use vagal manoeuvres first when appropriate.
+    </p>
 
-                            <p>
-                                If unsuccessful, give 12 mg;
-                                if still unsuccessful, give 18 mg.
-                            </p>
+    <p>
+        <strong>Adult dose:</strong>
+        6 mg rapid IV bolus.
+    </p>
 
-                            <small>
-                                Use according to the appropriate
-                                tachyarrhythmia algorithm and clinical context.
-                            </small>
+    <p>
+        If unsuccessful, give 12 mg;
+        if still unsuccessful, give 18 mg.
+    </p>
 
-                        </div>
+    <p>
+        Use adenosine only when appropriate for the rhythm and
+        avoid it when pre-excitation is suspected in the relevant
+        clinical context.
+    </p>
+
+    <small>
+        Use according to the current tachyarrhythmia algorithm
+        and clinical context.
+    </small>
+
+</div>
 
 
                         <div class="drug-card">
 
-                            <div class="drug-title">
-                                <strong>Atropine</strong>
-                                <span>Symptomatic bradycardia</span>
-                            </div>
+    <div class="drug-title">
+        <strong>Atropine</strong>
+        <span>Symptomatic bradycardia</span>
+    </div>
 
-                            <p>
-                                <strong>Adult dose:</strong>
-                                500 micrograms IV.
-                                Repeat every 3–5 minutes if necessary,
-                                up to a total of 3 mg.
-                            </p>
+    <p>
+        <strong>Adult dose:</strong>
+        500 micrograms IV.
+        Repeat every 3–5 minutes if necessary,
+        up to a total of 3 mg.
+    </p>
 
-                            <small>
-                                RCUK 2025 bradyarrhythmia guidance.
-                                Important exceptions apply.
-                            </small>
+    <p>
+        Do not give atropine to patients with a cardiac transplant.
+        Avoid atropine in high-degree AV block with a wide QRS.
+    </p>
 
-                        </div>
+    <small>
+        If ineffective, prepare for pacing and follow the current
+        bradyarrhythmia algorithm.
+    </small>
+
+</div>
 
 
                         <div class="drug-card">
