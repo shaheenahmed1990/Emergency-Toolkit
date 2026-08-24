@@ -2590,3 +2590,220 @@ footer span {
         padding: 18px;
     }
 }
+/* =================================
+   Emergency Infusions
+   ================================= */
+
+.infusions-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px;
+}
+
+.infusions-modal {
+    width: min(860px, 100%);
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+    color: #17202a;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.4);
+}
+
+.infusions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 22px 24px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.infusions-header h2 {
+    margin: 0;
+}
+
+.infusions-header p {
+    margin: 5px 0 0;
+    color: #64748b;
+}
+
+.infusions-close {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #eef2f7;
+
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.infusions-body {
+    padding: 24px;
+}
+
+.infusions-alert {
+    padding: 16px;
+    margin-bottom: 20px;
+
+    background: #fff4e5;
+    border-left: 5px solid #f59e0b;
+
+    border-radius: 10px;
+}
+
+.infusions-alert p {
+    margin: 6px 0 0;
+}
+
+.infusions-section {
+    margin-top: 24px;
+}
+
+.infusions-section h3 {
+    margin-bottom: 12px;
+}
+
+.infusions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.infusions-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.infusions-field label {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 7px;
+
+    font-weight: 600;
+}
+
+.infusions-field label span {
+    color: #64748b;
+    font-weight: 400;
+}
+
+.infusions-field input,
+.infusions-section select {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+
+    font-size: 1rem;
+
+    box-sizing: border-box;
+}
+
+.infusions-result {
+    padding: 20px;
+
+    background: #f1f5f9;
+
+    border-radius: 14px;
+}
+
+.infusions-result-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #dbe3eb;
+}
+
+.infusions-result-row:last-child {
+    border-bottom: none;
+}
+
+.infusions-actions {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.infusions-actions button {
+    flex: 1;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+.infusions-reset {
+    background: #e2e8f0;
+}
+
+.infusions-calculate {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.infusions-note {
+    margin-top: 18px;
+
+    padding: 14px;
+
+    background: #f8fafc;
+    color: #64748b;
+
+    border-radius: 10px;
+
+    font-size: 0.85rem;
+}
+
+.infusions-note p {
+    margin: 5px 0 0;
+}
+
+@media (max-width: 600px) {
+
+    .infusions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .infusions-body {
+        padding: 18px;
+    }
+
+    .infusions-header {
+        padding: 18px;
+    }
+
+    .infusions-result-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
