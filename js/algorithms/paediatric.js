@@ -142,32 +142,58 @@ function openPaediatric() {
 
                     <section class="paediatric-section">
 
-                        <h3>4. Circulation & shock</h3>
+    <h3>4. Circulation & shock</h3>
 
-                        <div class="paediatric-grid">
+    <div class="paediatric-grid">
 
-                            <div class="paediatric-card">
-                                <strong>Assess</strong>
-                                <ul>
-                                    <li>Heart rate.</li>
-                                    <li>Peripheral perfusion.</li>
-                                    <li>Capillary refill.</li>
-                                    <li>Blood pressure when appropriate.</li>
-                                    <li>Mental status.</li>
-                                </ul>
-                            </div>
+        <div class="paediatric-card">
 
-                            <div class="paediatric-card warning">
-                                <strong>Shock</strong>
-                                <p>
-                                    Do not rely on a single sign.
-                                    Consider trends and the overall clinical picture.
-                                </p>
-                            </div>
+            <strong>Assess</strong>
 
-                        </div>
+            <ul>
+                <li>Heart rate.</li>
+                <li>Peripheral perfusion and capillary refill.</li>
+                <li>Blood pressure when appropriate.</li>
+                <li>Mental status.</li>
+                <li>Urine output and other signs of organ perfusion when available.</li>
+            </ul>
 
-                    </section>
+        </div>
+
+
+        <div class="paediatric-card warning">
+
+            <strong>Shock</strong>
+
+            <ul>
+                <li>
+                    Do not rely on a single sign; assess trends and the
+                    overall clinical picture.
+                </li>
+
+                <li>
+                    In hypovolaemic, obstructive or distributive shock,
+                    give 10 mL/kg balanced isotonic crystalloid or 0.9% saline
+                    and reassess after each bolus.
+                </li>
+
+                <li>
+                    Consider smaller, more cautious fluid boluses in
+                    cardiogenic shock or when there is significant risk
+                    of fluid overload.
+                </li>
+
+                <li>
+                    Consider vasoactive support and respiratory support
+                    when repeated fluid boluses are required.
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
 
 
                     <section class="paediatric-section">
@@ -207,20 +233,39 @@ function openPaediatric() {
 
                     <section class="paediatric-section">
 
-                        <h3>6. Weight & drug safety</h3>
+    <h3>6. Weight & drug safety</h3>
 
-                        <div class="paediatric-card">
+    <div class="paediatric-card">
 
-                            <ul>
-                                <li>Ask the parent or carer for an estimated weight when possible.</li>
-                                <li>Use a reliable length-based or validated weight-estimation method when required.</li>
-                                <li>Verify weight before weight-based medication or fluid administration.</li>
-                                <li>Use the dedicated paediatric dosing reference when available.</li>
-                            </ul>
+        <ul>
+            <li>
+                Ask the parent or carer for an estimated weight whenever possible.
+            </li>
 
-                        </div>
+            <li>
+                Use a reliable length-based or validated weight-estimation method
+                when an actual weight is unavailable.
+            </li>
 
-                    </section>
+            <li>
+                Verify the child's weight before calculating weight-based
+                medication or fluid doses.
+            </li>
+
+            <li>
+                Use a dedicated paediatric dosing reference or local
+                paediatric emergency formulary when available.
+            </li>
+
+            <li>
+                Check the calculated dose, concentration, route and maximum dose
+                before administration.
+            </li>
+        </ul>
+
+    </div>
+
+</section>
 
 
                     <section class="paediatric-section">
@@ -260,25 +305,51 @@ function openPaediatric() {
 
                     <section class="paediatric-section">
 
-                        <h3>8. Cardiac arrest</h3>
+    <h3>8. Cardiac arrest</h3>
 
-                        <div class="paediatric-card critical">
+    <div class="paediatric-card critical">
 
-                            <p>
-                                If the child is unresponsive and not breathing
-                                normally, initiate paediatric resuscitation,
-                                provide initial rescue breaths and follow the
-                                appropriate paediatric life-support algorithm.
-                            </p>
+        <p>
+            If the child is unresponsive and not breathing normally,
+            activate the resuscitation response and begin paediatric
+            basic life support immediately.
+        </p>
 
-                            <p>
-                                Activate the resuscitation team early and attach
-                                monitoring/defibrillation equipment when available.
-                            </p>
+        <ul>
+            <li>
+                Give 5 initial rescue breaths.
+            </li>
 
-                        </div>
+            <li>
+                Continue CPR according to the appropriate paediatric
+                life-support algorithm.
+            </li>
 
-                    </section>
+            <li>
+                For healthcare professionals trained in paediatric
+                life support, use the current paediatric CPR ratio
+                and algorithm appropriate to the training level.
+            </li>
+
+            <li>
+                Attach monitoring and defibrillation equipment as soon
+                as available.
+            </li>
+
+            <li>
+                Use high-concentration oxygen and effective ventilation
+                when appropriate.
+            </li>
+
+            <li>
+                Reassess rhythm and response according to the
+                paediatric resuscitation algorithm.
+            </li>
+        </ul>
+
+    </div>
+
+</section>
 
 
                     <section class="paediatric-section">
