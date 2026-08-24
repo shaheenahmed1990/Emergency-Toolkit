@@ -90,6 +90,34 @@ function openCardiacArrest() {
 
                     </section>
 
+<section class="arrest-section">
+
+    <h3>3A. Defibrillation</h3>
+
+    <div class="arrest-card shockable">
+
+        <strong>Optimise defibrillator pad placement.</strong>
+
+        <ul>
+            <li>
+                Use appropriate pad size and placement according to
+                the defibrillator and local protocol.
+            </li>
+
+            <li>
+                The lateral / apical pad should be placed below the
+                armpit in the mid-axillary line.
+            </li>
+
+            <li>
+                Minimise the peri-shock pause and immediately resume CPR.
+            </li>
+        </ul>
+
+    </div>
+
+</section>
+
 
                     <section class="arrest-section">
 
@@ -117,19 +145,29 @@ function openCardiacArrest() {
 
                     <section class="arrest-section">
 
-                        <h3>4. Airway & ventilation</h3>
+                        <h3>4. Airway, oxygenation &amp; ventilation</h3>
 
                         <ul>
                             <li>
-                                Provide effective ventilation with
-                                the available airway strategy.
+                                Provide effective ventilation with the available
+                                airway strategy.
                             </li>
+
                             <li>
-                                Minimise interruptions in chest compressions.
+                                Minimise interruptions to chest compressions.
                             </li>
+
                             <li>
-                                Use waveform capnography when an
-                                advanced airway is in place.
+                                Use high-concentration oxygen during active cardiac arrest.
+                            </li>
+
+                            <li>
+                                Use waveform capnography when an advanced airway is in place.
+                            </li>
+
+                            <li>
+                                After an advanced airway is established, provide continuous
+                                chest compressions with appropriate ventilation.
                             </li>
                         </ul>
 
@@ -172,12 +210,19 @@ function openCardiacArrest() {
                         <h3>6. ROSC</h3>
 
                         <div class="arrest-card rosc">
-                            <strong>Return of spontaneous circulation</strong>
 
-                            <p>
-                                If ROSC occurs, transition immediately
-                                to post-resuscitation care.
-                            </p>
+                            <strong>Immediate post-resuscitation care</strong>
+
+                            <ul>
+                                <li>ABCDE assessment.</li>
+                                <li>Aim for SpO₂ 94–98%.</li>
+                                <li>Aim for normal PaCO₂.</li>
+                                <li>Aim for systolic blood pressure &gt; 100 mmHg.</li>
+                                <li>Obtain a 12-lead ECG.</li>
+                                <li>Identify and treat the cause of cardiac arrest.</li>
+                                <li>Begin appropriate temperature control.</li>
+                            </ul>
+
                         </div>
 
                     </section>

@@ -5693,3 +5693,24 @@ body.dark-mode [class*="-modal"] p,
 body.dark-mode [class*="-modal"] li {
     color: #cbd5e1;
 }
+/* =================================
+   Cardiac Arrest — Dark Mode
+   Reversible Causes
+   ================================= */
+
+body.dark-mode .reversible-grid > div {
+    background: #1e293b !important;
+    color: #cbd5e1 !important;
+
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+body.dark-mode .reversible-grid > div strong {
+    color: #f8fafc !important;
+}
+
+body.dark-mode .reversible-grid > div li {
+    color: #cbd5e1 !important;
+}
