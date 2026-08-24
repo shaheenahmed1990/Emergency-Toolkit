@@ -58,7 +58,14 @@ function openSepsis() {
                             <li>Assess airway, breathing and circulation.</li>
                             <li>Assess mental status and peripheral perfusion.</li>
                             <li>Review blood pressure, heart rate, respiratory rate and SpO₂.</li>
-                            <li>Use an appropriate local sepsis screening pathway.</li>
+                            <li>
+    Use an appropriate local sepsis screening pathway;
+    NEWS2, MEWS or SIRS may be used according to local policy.
+</li>
+
+<li>
+    Do not use qSOFA as the sole screening tool for sepsis.
+</li>
                         </ul>
 
                     </section>
@@ -72,7 +79,11 @@ function openSepsis() {
 
                             <ul>
                                 <li>Measure lactate.</li>
-                                <li>Obtain blood cultures as early as practical.</li>
+<li>
+    Obtain blood cultures as soon as possible and ideally before
+    antimicrobial therapy.
+</li>
+
                                 <li>FBC / CBC.</li>
                                 <li>U&E / renal function.</li>
                                 <li>LFTs when clinically indicated.</li>
@@ -87,66 +98,86 @@ function openSepsis() {
 
                     <section class="sepsis-section">
 
-                        <h3>3. Antimicrobial therapy</h3>
+    <h3>3. Antimicrobial therapy</h3>
 
-                        <div class="sepsis-card urgent">
+    <div class="sepsis-card urgent">
 
-                            <strong>Do not delay treatment in septic shock.</strong>
+        <strong>Time to antibiotics depends on clinical probability and shock.</strong>
 
-                            <ul>
-                                <li>
-                                    Start appropriate antimicrobials promptly
-                                    when septic shock is present.
-                                </li>
-                                <li>
-                                    In sepsis without shock, determine the
-                                    likelihood of infection and initiate
-                                    antimicrobials promptly when infection
-                                    is likely.
-                                </li>
-                                <li>
-                                    Obtain cultures before antimicrobials
-                                    when this does not cause a meaningful delay.
-                                </li>
-                                <li>
-                                    Tailor therapy to the suspected source,
-                                    local resistance patterns and patient factors.
-                                </li>
-                            </ul>
+        <ul>
+            <li>
+                For septic shock or probable/definite sepsis:
+                start appropriate antimicrobials immediately,
+                ideally within 1 hour of recognition.
+            </li>
 
-                        </div>
+            <li>
+                For possible sepsis without shock:
+                perform a rapid assessment of infectious versus
+                non-infectious causes.
+            </li>
 
-                    </section>
+            <li>
+                If concern for infection persists in possible sepsis
+                without shock, start antimicrobials within 3 hours
+                of sepsis being first suspected.
+            </li>
+
+            <li>
+                Obtain cultures before antimicrobials when this does not
+                cause a clinically meaningful delay.
+            </li>
+
+            <li>
+                Tailor therapy to the suspected source, local resistance
+                patterns and patient-specific factors.
+            </li>
+        </ul>
+
+    </div>
+
+</section>
 
 
                     <section class="sepsis-section">
 
-                        <h3>4. Initial fluid resuscitation</h3>
+    <h3>4. Initial fluid resuscitation</h3>
 
-                        <div class="sepsis-card fluid">
+    <div class="sepsis-card fluid">
 
-                            <strong>Crystalloid is first-line.</strong>
+        <strong>Crystalloid is first-line.</strong>
 
-                            <ul>
-                                <li>
-                                    For sepsis-induced hypoperfusion or
-                                    septic shock, consider at least
-                                    30 mL/kg crystalloid within the initial
-                                    3 hours, with frequent reassessment.
-                                </li>
-                                <li>
-                                    Balanced crystalloids are generally
-                                    preferred over 0.9% saline when appropriate.
-                                </li>
-                                <li>
-                                    Avoid giving fluid blindly: reassess
-                                    perfusion and response after each bolus.
-                                </li>
-                            </ul>
+        <ul>
+            <li>
+                In sepsis-induced hypoperfusion or septic shock,
+                consider at least 30 mL/kg IV crystalloid during
+                the initial 3 hours.
+            </li>
 
-                        </div>
+            <li>
+                Use frequent reassessment rather than automatic
+                fluid administration.
+            </li>
 
-                    </section>
+            <li>
+                Balanced crystalloids are generally preferred
+                over 0.9% saline when appropriate.
+            </li>
+
+            <li>
+                Consider patient-specific factors and the risk of
+                fluid overload.
+            </li>
+
+            <li>
+                Use dynamic measures of fluid responsiveness when
+                appropriate and available.
+            </li>
+        </ul>
+
+    </div>
+
+</section>
 
 
                     <section class="sepsis-section">
@@ -172,6 +203,11 @@ function openSepsis() {
                         <div class="sepsis-card vasopressor">
 
                             <strong>Vasopressor strategy</strong>
+<p>
+    In septic shock, vasopressors may be started peripherally
+    when needed rather than delaying treatment until central
+    venous access is secured, according to local protocol.
+</p>
 
                             <ol>
                                 <li>
@@ -201,21 +237,30 @@ function openSepsis() {
 
                     <section class="sepsis-section">
 
-                        <h3>7. Source control</h3>
+    <h3>7. Source control</h3>
 
-                        <ul>
-                            <li>Identify a source requiring intervention.</li>
-                            <li>
-                                Achieve source control as soon as medically
-                                and logistically practical.
-                            </li>
-                            <li>
-                                Coordinate with surgery, interventional
-                                radiology or other procedural teams when required.
-                            </li>
-                        </ul>
+    <ul>
+        <li>
+            Rapidly identify an anatomical source requiring intervention.
+        </li>
 
-                    </section>
+        <li>
+            Achieve source control as early as medically and logistically
+            practical.
+        </li>
+
+        <li>
+            When a source requiring intervention is identified,
+            aim for source control ideally within 6 hours.
+        </li>
+
+        <li>
+            Coordinate with surgery, interventional radiology,
+            endoscopy or other procedural teams when required.
+        </li>
+    </ul>
+
+</section>
 
 
                     <section class="sepsis-section">
