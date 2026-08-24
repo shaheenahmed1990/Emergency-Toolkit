@@ -66,42 +66,79 @@ function openElectrolytes() {
 
                     <section class="electrolytes-section">
 
-                        <h3>2. Hyperkalaemia</h3>
+    <h3>2. Hyperkalaemia</h3>
 
-                        <div class="electrolytes-grid">
+    <div class="electrolytes-grid">
 
-                            <div class="electrolytes-card emergency">
+        <div class="electrolytes-card emergency">
 
-                                <strong>Moderate: K⁺ 6.0–6.4 mmol/L</strong>
+            <strong>Moderate: K⁺ 6.0–6.4 mmol/L</strong>
 
-                                <ul>
-                                    <li>Confirm the result and assess the clinical context.</li>
-                                    <li>Perform ECG assessment.</li>
-                                    <li>Consider insulin/glucose treatment according to protocol.</li>
-                                    <li>Use nebulised salbutamol as an adjunct.</li>
-                                    <li>Monitor potassium and blood glucose after treatment.</li>
-                                </ul>
+            <ul>
+                <li>
+                    Confirm the result and assess the clinical context,
+                    including possible pseudohyperkalaemia.
+                </li>
 
-                            </div>
+                <li>
+                    Perform an ECG and establish cardiac monitoring.
+                </li>
+
+                <li>
+                    Consider insulin/glucose treatment according to
+                    the current hyperkalaemia protocol.
+                </li>
+
+                <li>
+                    Use nebulised salbutamol as an adjunct.
+                </li>
+
+                <li>
+                    Monitor potassium and blood glucose after treatment.
+                </li>
+            </ul>
+
+        </div>
 
 
-                            <div class="electrolytes-card critical">
+        <div class="electrolytes-card critical">
 
-                                <strong>Severe: K⁺ ≥ 6.5 mmol/L</strong>
+            <strong>Severe: K⁺ ≥ 6.5 mmol/L</strong>
 
-                                <ul>
-                                    <li>Urgent assessment and continuous cardiac monitoring.</li>
-                                    <li>Immediate treatment according to the hyperkalaemia pathway.</li>
-                                    <li>Consider calcium when ECG changes are present.</li>
-                                    <li>Use insulin/glucose and nebulised salbutamol to shift potassium intracellularly.</li>
-                                    <li>Consider potassium removal and urgent renal/critical-care support when refractory.</li>
-                                </ul>
+            <ul>
+                <li>
+                    Urgent treatment and continuous cardiac monitoring.
+                </li>
 
-                            </div>
+                <li>
+                    Perform immediate ECG assessment.
+                </li>
 
-                        </div>
+                <li>
+                    Treat according to the current hyperkalaemia pathway.
+                </li>
 
-                    </section>
+                <li>
+                    Give IV calcium when severe hyperkalaemia is accompanied
+                    by ECG changes.
+                </li>
+
+                <li>
+                    Use insulin/glucose and nebulised salbutamol to shift
+                    potassium intracellularly.
+                </li>
+
+                <li>
+                    Consider potassium removal and urgent renal / critical-care
+                    support when refractory.
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
 
 
                     <section class="electrolytes-section">
@@ -131,32 +168,39 @@ function openElectrolytes() {
 
                     <section class="electrolytes-section">
 
-                        <h3>4. Shift potassium into cells</h3>
+    <h3>4. Shift potassium into cells</h3>
 
-                        <div class="electrolytes-card">
+    <div class="electrolytes-card">
 
-                            <strong>Insulin + glucose</strong>
+        <strong>Insulin + glucose</strong>
 
-                            <p>
-                                RCUK 2025 recommends 10 units soluble insulin
-                                with 25 g glucose IV for moderate and severe
-                                hyperkalaemia.
-                            </p>
+        <p>
+            Give 10 units soluble insulin with 25 g glucose IV
+            for moderate or severe hyperkalaemia according to
+            the current protocol.
+        </p>
 
-                            <strong>Salbutamol</strong>
+        <p>
+            If the blood glucose concentration before treatment
+            is below 7.0 mmol/L, continue glucose infusion according
+            to the current hyperkalaemia protocol to reduce the risk
+            of hypoglycaemia.
+        </p>
 
-                            <p>
-                                Nebulised salbutamol 10–20 mg is used as an
-                                adjunct to insulin/glucose therapy.
-                            </p>
+        <strong>Salbutamol</strong>
 
-                            <small>
-                                Monitor blood glucose and potassium after treatment.
-                            </small>
+        <p>
+            Give nebulised salbutamol 10–20 mg as an adjunct to
+            insulin/glucose therapy.
+        </p>
 
-                        </div>
+        <small>
+            Monitor blood glucose and potassium after treatment.
+        </small>
 
-                    </section>
+    </div>
+
+</section>
 
 
                     <section class="electrolytes-section">
@@ -204,26 +248,32 @@ function openElectrolytes() {
 
                     <section class="electrolytes-section">
 
-                        <h3>7. Hypokalaemic cardiac arrest</h3>
+    <h3>7. Hypokalaemic cardiac arrest</h3>
 
-                        <div class="electrolytes-card critical">
+    <div class="electrolytes-card critical">
 
-                            <strong>Follow the cardiac-arrest electrolyte pathway.</strong>
+        <strong>Urgent potassium replacement during cardiac arrest.</strong>
 
-                            <p>
-                                RCUK 2025 recommends IV/IO potassium replacement
-                                during cardiac arrest caused by severe hypokalaemia,
-                                with subsequent monitoring and adjustment.
-                            </p>
+        <p>
+            When cardiac arrest is caused by severe hypokalaemia,
+            give IV/IO potassium according to the current specialist
+            resuscitation protocol.
+        </p>
 
-                            <p>
-                                Use the current specialist resuscitation protocol
-                                rather than routine replacement practice.
-                            </p>
+        <p>
+            RCUK 2025 specifies an initial 20 mmol potassium chloride
+            IV/IO over 2–3 minutes, followed by 10 mmol over 2 minutes,
+            with subsequent potassium measurement and adjustment.
+        </p>
 
-                        </div>
+        <p>
+            Use continuous ECG monitoring and follow the current
+            electrolyte-related cardiac-arrest algorithm.
+        </p>
 
-                    </section>
+    </div>
+
+</section>
 
 
                     <section class="electrolytes-section">
