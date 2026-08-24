@@ -53,82 +53,149 @@ function openACS() {
 
                     <section class="acs-section">
 
-                        <h3>1. Immediate assessment</h3>
+    <h3>1. Immediate assessment</h3>
 
-                        <ol>
-                            <li>Assess airway, breathing and circulation.</li>
-                            <li>Assess haemodynamic stability and mental status.</li>
-                            <li>Obtain a 12-lead ECG as early as possible.</li>
-                            <li>Establish continuous monitoring when appropriate.</li>
-                            <li>Obtain appropriate blood tests including high-sensitivity cardiac troponin.</li>
-                            <li>Ask about symptom onset / time of last known well for the current episode.</li>
-                            <li>Review anticoagulants, antiplatelets, allergies and bleeding risk.</li>
-                        </ol>
+    <ol>
+        <li>Assess airway, breathing and circulation.</li>
+        <li>Assess haemodynamic stability and mental status.</li>
+        <li>
+            Obtain and interpret a 12-lead ECG within 10 minutes
+            of first medical contact whenever possible.
+        </li>
+        <li>Establish continuous monitoring when appropriate.</li>
+        <li>
+            Obtain high-sensitivity cardiac troponin using the
+            validated local assay and pathway.
+        </li>
+        <li>
+            Ask about symptom onset and timing of the current episode.
+        </li>
+        <li>
+            Review anticoagulants, antiplatelets, allergies
+            and bleeding risk.
+        </li>
+    </ol>
 
-                    </section>
-
-
-                    <section class="acs-section">
-
-                        <h3>2. ECG assessment</h3>
-
-                        <div class="acs-card critical">
-
-                            <strong>Do not delay ECG interpretation.</strong>
-
-                            <ul>
-                                <li>Look for persistent ST-segment elevation or equivalent patterns.</li>
-                                <li>Assess for dynamic ST-T changes.</li>
-                                <li>Look for conduction abnormalities and arrhythmias.</li>
-                                <li>Repeat ECG when symptoms persist or the clinical picture changes.</li>
-                            </ul>
-
-                            <p>
-                                A normal initial ECG does not completely exclude ACS.
-                            </p>
-
-                        </div>
-
-                    </section>
+</section>
 
 
                     <section class="acs-section">
 
-                        <h3>3. STEMI / occlusive coronary emergency</h3>
+    <h3>2. ECG assessment</h3>
 
-                        <div class="acs-card emergency">
+    <div class="acs-card critical">
 
-                            <strong>Activate the reperfusion pathway immediately.</strong>
+        <strong>Do not delay ECG interpretation.</strong>
 
-                            <ul>
-                                <li>Contact the appropriate cardiology / PCI service early.</li>
-                                <li>Minimise delays to definitive reperfusion.</li>
-                                <li>Do not wait for routine laboratory results when they would delay urgent reperfusion.</li>
-                                <li>Follow the current local STEMI / PCI pathway.</li>
-                            </ul>
+        <ul>
+            <li>
+                Look for persistent ST-segment elevation or
+                equivalent patterns.
+            </li>
 
-                        </div>
+            <li>
+                Assess for dynamic ST-T changes.
+            </li>
 
-                    </section>
+            <li>
+                Look for conduction abnormalities and arrhythmias.
+            </li>
+
+            <li>
+                Repeat ECG when symptoms persist or the clinical
+                picture changes.
+            </li>
+
+            <li>
+                A normal initial ECG does not completely exclude ACS.
+            </li>
+        </ul>
+
+    </div>
+
+</section>
 
 
                     <section class="acs-section">
 
-                        <h3>4. NSTE-ACS</h3>
+    <h3>3. STEMI / occlusive coronary emergency</h3>
 
-                        <div class="acs-card">
+    <div class="acs-card emergency">
 
-                            <ul>
-                                <li>Assess clinical risk and haemodynamic stability.</li>
-                                <li>Use serial high-sensitivity troponin testing according to the local pathway.</li>
-                                <li>Assess for dynamic ECG changes.</li>
-                                <li>Identify very-high-risk features requiring urgent invasive management.</li>
-                                <li>Use validated risk assessment as appropriate.</li>
-                            </ul>
+        <strong>Activate the reperfusion pathway immediately.</strong>
 
-                        </div>
+        <ul>
+            <li>
+                Contact the appropriate cardiology / PCI service early.
+            </li>
 
-                    </section>
+            <li>
+                Primary PCI is the preferred reperfusion strategy
+                when it can be delivered within the appropriate
+                time window.
+            </li>
+
+            <li>
+                If timely primary PCI cannot be performed within
+                120 minutes from diagnosis, follow the local
+                fibrinolysis pathway when eligible and within
+                the appropriate symptom-onset window.
+            </li>
+
+            <li>
+                Minimise transfer and treatment delays.
+            </li>
+
+            <li>
+                Do not wait for routine laboratory results when they
+                would delay urgent reperfusion.
+            </li>
+        </ul>
+
+    </div>
+
+</section>
+
+
+                    <section class="acs-section">
+
+    <h3>4. NSTE-ACS</h3>
+
+    <div class="acs-card">
+
+        <ul>
+            <li>
+                Assess clinical risk and haemodynamic stability.
+            </li>
+
+            <li>
+                Use serial high-sensitivity troponin testing with
+                a validated rapid 0/1-hour or 0/2-hour pathway
+                according to the assay and local protocol.
+            </li>
+
+            <li>
+                Assess for dynamic ECG changes.
+            </li>
+
+            <li>
+                Identify very-high-risk features requiring
+                immediate invasive management.
+            </li>
+
+            <li>
+                High-risk patients may require an early invasive
+                strategy, typically within 24 hours.
+            </li>
+
+            <li>
+                Use a validated risk assessment tool as appropriate.
+            </li>
+        </ul>
+
+    </div>
+
+</section>
 
 
                     <section class="acs-section">
