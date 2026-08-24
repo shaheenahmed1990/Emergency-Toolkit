@@ -119,18 +119,35 @@ function openAirway() {
 
                     <section class="airway-section">
 
-                        <h3>4. Bag-mask ventilation</h3>
+    <h3>4. Bag-mask ventilation</h3>
 
-                        <ul>
-                            <li>Use an appropriate mask size and effective seal.</li>
-                            <li>Optimise head and airway position.</li>
-                            <li>Use two-person technique when available and needed.</li>
-                            <li>Ventilate with visible chest movement while avoiding excessive ventilation.</li>
-                            <li>Reassess oxygenation and ventilation continuously.</li>
-                        </ul>
+    <ul>
+        <li>
+            Preoxygenate whenever advanced airway management is anticipated.
+        </li>
 
-                    </section>
+        <li>
+            Use an appropriate mask size and effective seal.
+        </li>
 
+        <li>
+            Optimise head and airway position.
+        </li>
+
+        <li>
+            Use two-person technique when available and needed.
+        </li>
+
+        <li>
+            Ventilate with visible chest movement while avoiding excessive ventilation.
+        </li>
+
+        <li>
+            Reassess oxygenation and ventilation continuously.
+        </li>
+    </ul>
+
+</section>
 
                     <section class="airway-section">
 
@@ -152,44 +169,93 @@ function openAirway() {
 
                     <section class="airway-section">
 
-                        <h3>6. Tracheal intubation</h3>
+    <h3>6. Tracheal intubation</h3>
 
-                        <div class="airway-card emergency">
+    <div class="airway-card emergency">
 
-                            <strong>Use only when appropriate expertise and equipment are available.</strong>
+        <strong>Intubate only when appropriate expertise, monitoring
+        and rescue equipment are immediately available.</strong>
 
-                            <ul>
-                                <li>Preoxygenate and optimise first.</li>
-                                <li>Prepare suction, alternative airway devices and rescue plans.</li>
-                                <li>Minimise interruption of ventilation/CPR when relevant.</li>
-                                <li>Confirm tracheal tube placement with waveform capnography whenever available.</li>
-                                <li>Have a failed-intubation strategy ready before starting.</li>
-                            </ul>
+        <ul>
+            <li>
+                Preoxygenate and optimise the patient's position and physiology.
+            </li>
 
-                        </div>
+            <li>
+                Prepare suction, alternative airway devices and a clear rescue plan.
+            </li>
 
-                    </section>
+            <li>
+                Use direct or video laryngoscopy according to local protocol
+                and operator experience.
+            </li>
+
+            <li>
+                Minimise interruption to oxygenation and ventilation.
+            </li>
+
+            <li>
+                Use continuous waveform capnography.
+            </li>
+
+            <li>
+                Confirm a sustained ETCO₂ waveform consistent with tracheal
+                tube placement.
+            </li>
+
+            <li>
+                Limit repeated attempts and escalate early when intubation
+                is proving difficult.
+            </li>
+        </ul>
+
+    </div>
+
+</section>
 
 
                     <section class="airway-section">
 
-                        <h3>7. Difficult / failed airway</h3>
+    <h3>7. Difficult / failed airway</h3>
 
-                        <div class="airway-card warning">
+    <div class="airway-card warning">
 
-                            <strong>Prioritise oxygenation.</strong>
+        <strong>Prioritise oxygenation rather than repeated attempts.</strong>
 
-                            <ol>
-                                <li>Recognise failed intubation early.</li>
-                                <li>Call for additional experienced help.</li>
-                                <li>Return to an effective oxygenation strategy.</li>
-                                <li>Use an appropriate rescue device.</li>
-                                <li>Escalate according to the local difficult-airway algorithm.</li>
-                            </ol>
+        <ol>
+            <li>
+                Recognise failed or difficult intubation early.
+            </li>
 
-                        </div>
+            <li>
+                Call for experienced additional help.
+            </li>
 
-                    </section>
+            <li>
+                Return to the most effective oxygenation strategy,
+                including two-person BVM when required.
+            </li>
+
+            <li>
+                Use an appropriate supraglottic airway / rescue device
+                when indicated.
+            </li>
+
+            <li>
+                Follow the local difficult-airway pathway and current
+                DAS algorithm.
+            </li>
+
+            <li>
+                If oxygenation cannot be maintained despite rescue measures,
+                progress to emergency front-of-neck airway according to
+                the relevant local protocol.
+            </li>
+        </ol>
+
+    </div>
+
+</section>
 
 
                     <section class="airway-section">
