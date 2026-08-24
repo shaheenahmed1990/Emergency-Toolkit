@@ -50,22 +50,24 @@ function openTrauma() {
 
                     <section class="trauma-section">
 
-                        <h3>0. Catastrophic haemorrhage</h3>
+    <h3>0. Catastrophic haemorrhage</h3>
 
-                        <div class="trauma-card critical">
+    <div class="trauma-card critical">
 
-                            <strong>Control major external bleeding immediately.</strong>
+        <strong>Control life-threatening bleeding immediately.</strong>
 
-                            <ul>
-                                <li>Direct pressure.</li>
-                                <li>Haemostatic dressing when appropriate.</li>
-                                <li>Tourniquet for life-threatening limb haemorrhage when indicated.</li>
-                                <li>Activate the local major haemorrhage pathway when appropriate.</li>
-                            </ul>
+        <ul>
+            <li>Apply direct pressure.</li>
+            <li>Use a haemostatic dressing when appropriate.</li>
+            <li>Apply a tourniquet for life-threatening limb haemorrhage when indicated.</li>
+            <li>Activate the local major haemorrhage protocol when indicated.</li>
+            <li>Give IV tranexamic acid as early as possible when major trauma is associated with active or suspected active bleeding, according to local protocol.</li>
+            <li>Use blood-component resuscitation and minimise unnecessary crystalloid in active major haemorrhage.</li>
+        </ul>
 
-                        </div>
+    </div>
 
-                    </section>
+</section>
 
 
                     <section class="trauma-section">
@@ -85,49 +87,64 @@ function openTrauma() {
 
                     <section class="trauma-section">
 
-                        <h3>B — Breathing</h3>
+    <h3>B — Breathing</h3>
 
-                        <div class="trauma-grid">
+    <div class="trauma-grid">
 
-                            <div class="trauma-card">
-                                <strong>Assess</strong>
-                                <ul>
-                                    <li>Respiratory effort.</li>
-                                    <li>Chest movement and symmetry.</li>
-                                    <li>SpO₂.</li>
-                                    <li>Auscultation and percussion.</li>
-                                </ul>
-                            </div>
+        <div class="trauma-card">
 
-                            <div class="trauma-card emergency">
-                                <strong>Immediate threats</strong>
-                                <ul>
-                                    <li>Tension pneumothorax</li>
-                                    <li>Open pneumothorax</li>
-                                    <li>Massive haemothorax</li>
-                                    <li>Airway-threatening chest injury</li>
-                                </ul>
-                            </div>
+            <strong>Assess</strong>
 
-                        </div>
+            <ul>
+                <li>Respiratory effort.</li>
+                <li>Chest movement and symmetry.</li>
+                <li>SpO₂.</li>
+                <li>Auscultation and percussion.</li>
+                <li>Look for penetrating or blunt chest injury.</li>
+            </ul>
 
-                    </section>
+        </div>
+
+        <div class="trauma-card emergency">
+
+            <strong>Immediate threats</strong>
+
+            <ul>
+                <li>Tension pneumothorax.</li>
+                <li>Open pneumothorax.</li>
+                <li>Massive haemothorax.</li>
+                <li>Airway-threatening chest injury.</li>
+            </ul>
+
+            <p>
+                Do not delay life-saving intervention for imaging when
+                tension pneumothorax is causing haemodynamic instability
+                or severe respiratory compromise.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
 
                     <section class="trauma-section">
 
-                        <h3>C — Circulation / haemorrhage</h3>
+    <h3>C — Circulation / haemorrhage</h3>
 
-                        <ul>
-                            <li>Assess pulse, blood pressure and peripheral perfusion.</li>
-                            <li>Search systematically for sources of bleeding.</li>
-                            <li>Establish appropriate IV/IO access.</li>
-                            <li>Send blood samples according to local major trauma protocol.</li>
-                            <li>Consider blood products and haemorrhage control pathways when indicated.</li>
-                            <li>Reassess response continuously.</li>
-                        </ul>
+    <ul>
+        <li>Assess pulse, blood pressure and peripheral perfusion.</li>
+        <li>Search systematically for external and internal bleeding.</li>
+        <li>Establish appropriate IV/IO access.</li>
+        <li>Send blood samples according to the local major trauma pathway.</li>
+        <li>Use blood products and haemorrhage-control pathways when indicated.</li>
+        <li>Consider pelvic haemorrhage in appropriate blunt high-energy trauma.</li>
+        <li>Apply a purpose-made pelvic binder when pelvic fracture with haemorrhage is suspected.</li>
+        <li>Reassess response continuously.</li>
+    </ul>
 
-                    </section>
+</section>
 
 
                     <section class="trauma-section">
@@ -179,15 +196,34 @@ function openTrauma() {
 
                     <section class="trauma-section">
 
-                        <h3>Imaging / further evaluation</h3>
+    <h3>Imaging / further evaluation</h3>
 
-                        <ul>
-                            <li>Use imaging according to mechanism, examination and physiological status.</li>
-                            <li>Do not allow imaging to delay immediate treatment of life-threatening problems.</li>
-                            <li>Use local major trauma imaging pathways.</li>
-                        </ul>
+    <ul>
+        <li>
+            Use imaging according to mechanism, examination and physiological status.
+        </li>
 
-                    </section>
+        <li>
+            Do not allow imaging to delay immediate treatment of
+            life-threatening problems.
+        </li>
+
+        <li>
+            Consider whole-body CT in appropriate adult blunt major trauma
+            with suspected multiple injuries.
+        </li>
+
+        <li>
+            Use local major trauma imaging pathways.
+        </li>
+
+        <li>
+            Interpret imaging findings together with the patient's clinical
+            and physiological status.
+        </li>
+    </ul>
+
+</section>
 
 
                     <div class="trauma-note">
