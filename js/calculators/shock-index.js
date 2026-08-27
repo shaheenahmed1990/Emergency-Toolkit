@@ -191,21 +191,29 @@ function calculateShockIndex() {
     );
 
 
-    if (!hr || !sbp) {
+    const validRanges = [
+        ["Heart rate", hr, 20, 250],
+        ["Systolic blood pressure", sbp, 30, 300]
+    ];
 
-        alert(
-            "Please enter both heart rate and systolic blood pressure."
-        );
+    const invalidField = validRanges.find(
+        ([, value, min, max]) =>
+            !Number.isFinite(value) ||
+            value < min ||
+            value > max
+    );
 
-        return;
-    }
+    if (invalidField) {
 
+        const [label, value, min, max] = invalidField;
 
-    if (sbp <= 0) {
-
-        alert(
-            "Systolic blood pressure must be greater than zero."
-        );
+        if (!Number.isFinite(value) || value === 0) {
+            alert(`Please enter a valid ${label}.`);
+        } else {
+            alert(
+                `${label} must be between ${min} and ${max}.`
+            );
+        }
 
         return;
     }
@@ -246,7 +254,7 @@ function calculateShockIndex() {
     } else {
 
         interpretation =
-            "≥1.0 — concerning; urgent clinical assessment may be required";
+            "≥1.0 — markedly elevated; assess urgently in clinical context";
     }
 
 
