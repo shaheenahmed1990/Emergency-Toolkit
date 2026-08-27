@@ -252,18 +252,33 @@ function calculateABG() {
     );
 
 
-    if (
-        !pH ||
-        !pCO2 ||
-        !HCO3 ||
-        !pO2 ||
-        !Na ||
-        !Cl
-    ) {
+    const validRanges = [
+        ["pH", pH, 6.5, 8.0],
+        ["PaCO₂", pCO2, 5, 150],
+        ["HCO₃⁻", HCO3, 1, 60],
+        ["PaO₂", pO2, 1, 500],
+        ["Na⁺", Na, 80, 220],
+        ["Cl⁻", Cl, 40, 180]
+    ];
 
-        alert(
-            "Please complete all ABG values."
-        );
+    const invalidField = validRanges.find(
+        ([, value, min, max]) =>
+            !Number.isFinite(value) ||
+            value < min ||
+            value > max
+    );
+
+    if (invalidField) {
+
+        const [label, value, min, max] = invalidField;
+
+        if (!Number.isFinite(value) || value === 0) {
+            alert(`Please enter a valid ${label}.`);
+        } else {
+            alert(
+                `${label} must be between ${min} and ${max}.`
+            );
+        }
 
         return;
     }
