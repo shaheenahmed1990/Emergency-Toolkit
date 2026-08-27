@@ -469,20 +469,35 @@ function calculateNEWS2() {
         );
 
 
-    if (
-        !resp ||
-        !spo2 ||
-        !sbp ||
-        !pulse ||
-        !temp
-    ) {
+const validRanges = [
+    ["Respiratory rate", resp, 1, 80],
+    ["SpO₂", spo2, 50, 100],
+    ["Systolic blood pressure", sbp, 30, 300],
+    ["Pulse", pulse, 20, 250],
+    ["Temperature", temp, 30, 45]
+];
 
+const invalidField = validRanges.find(
+    ([, value, min, max]) =>
+        !Number.isFinite(value) ||
+        value < min ||
+        value > max
+);
+
+if (invalidField) {
+
+    const [label, value, min, max] = invalidField;
+
+    if (!Number.isFinite(value) || value === 0) {
+        alert(`Please enter a valid ${label}.`);
+    } else {
         alert(
-            "Please complete all physiological observations."
+            `${label} must be between ${min} and ${max}.`
         );
-
-        return;
     }
+
+    return;
+}
 
 
     const respiratoryScore =
