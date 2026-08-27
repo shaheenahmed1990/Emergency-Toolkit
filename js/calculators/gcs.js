@@ -14,17 +14,21 @@ function openGCSCalculator() {
             padding: 20px;
         ">
 
-            <div style="
-                background: white;
-                color: #222;
-                width: 100%;
-                max-width: 600px;
-                max-height: 90vh;
-                overflow-y: auto;
-                border-radius: 16px;
-                padding: 25px;
-                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            ">
+            <div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="gcsTitle"
+                style="
+                    background: white;
+                    color: #222;
+                    width: 100%;
+                    max-width: 600px;
+                    max-height: 90vh;
+                    overflow-y: auto;
+                    border-radius: 16px;
+                    padding: 25px;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                ">
 
                 <div style="
                     display: flex;
@@ -34,7 +38,7 @@ function openGCSCalculator() {
                 ">
 
                     <div>
-                        <h2 style="margin:0;">
+                        <h2 id="gcsTitle" style="margin:0;">
                             🧠 GCS Calculator
                         </h2>
 
@@ -252,12 +256,89 @@ function openGCSCalculator() {
     });
 
 
-    // Close button
-    document
-        .getElementById("closeGCS")
-        .addEventListener("click", () => {
-            modal.remove();
-        });
+    const closeButton = modal.querySelector("#closeGCS");
+    const dialog = modal.querySelector('[role="dialog"]');
+    const previousFocus = document.activeElement;
+
+    function closeGCSModal() {
+
+        document.removeEventListener(
+            "keydown",
+            handleGCSKeydown
+        );
+
+        modal.remove();
+
+        if (
+            previousFocus &&
+            typeof previousFocus.focus === "function"
+        ) {
+            previousFocus.focus();
+        }
+    }
+
+
+    function handleGCSKeydown(event) {
+
+        if (event.key === "Escape") {
+            event.preventDefault();
+            closeGCSModal();
+            return;
+        }
+
+        if (event.key !== "Tab") {
+            return;
+        }
+
+        const focusableElements = Array.from(
+            dialog.querySelectorAll(
+                'button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])'
+            )
+        ).filter(element =>
+            !element.disabled &&
+            element.offsetParent !== null
+        );
+
+        if (!focusableElements.length) {
+            event.preventDefault();
+            closeButton.focus();
+            return;
+        }
+
+        const firstElement = focusableElements[0];
+
+        const lastElement =
+            focusableElements[focusableElements.length - 1];
+
+        if (
+            event.shiftKey &&
+            document.activeElement === firstElement
+        ) {
+            event.preventDefault();
+            lastElement.focus();
+        }
+
+        else if (
+            !event.shiftKey &&
+            document.activeElement === lastElement
+        ) {
+            event.preventDefault();
+            firstElement.focus();
+        }
+    }
+
+
+    closeButton.addEventListener(
+        "click",
+        closeGCSModal
+    );
+
+    document.addEventListener(
+        "keydown",
+        handleGCSKeydown
+    );
+
+    closeButton.focus();
 
 
     // Click outside
