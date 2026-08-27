@@ -18,11 +18,15 @@ function openShockIndexCalculator() {
     modal.innerHTML = `
         <div class="shock-overlay">
 
-            <div class="shock-modal">
+            <div
+                class="shock-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="shockTitle">
 
                 <div class="shock-header">
                     <div>
-                        <h2>❤️ Shock Index</h2>
+                        <h2 id="shockTitle">❤️ Shock Index</h2>
                         <p>Heart Rate ÷ Systolic Blood Pressure</p>
                     </div>
 
@@ -140,11 +144,89 @@ function openShockIndexCalculator() {
     // Close
     // ================================
 
-    document
-        .getElementById("closeShock")
-        .addEventListener("click", () => {
-            modal.remove();
-        });
+    const dialog = modal.querySelector('[role="dialog"]');
+    const closeButton = modal.querySelector("#closeShock");
+    const previousFocus = document.activeElement;
+
+
+    function closeShockIndexModal() {
+
+        document.removeEventListener(
+            "keydown",
+            handleShockIndexKeydown
+        );
+
+        modal.remove();
+
+        if (
+            previousFocus &&
+            typeof previousFocus.focus === "function"
+        ) {
+            previousFocus.focus();
+        }
+    }
+
+
+    function handleShockIndexKeydown(event) {
+
+        if (event.key === "Escape") {
+            event.preventDefault();
+            closeShockIndexModal();
+            return;
+        }
+
+        if (event.key !== "Tab") {
+            return;
+        }
+
+        const focusableElements = Array.from(
+            dialog.querySelectorAll(
+                'button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])'
+            )
+        ).filter(element =>
+            !element.disabled &&
+            element.offsetParent !== null
+        );
+
+        if (!focusableElements.length) {
+            event.preventDefault();
+            closeButton.focus();
+            return;
+        }
+
+        const firstElement = focusableElements[0];
+
+        const lastElement =
+            focusableElements[focusableElements.length - 1];
+
+        if (
+            event.shiftKey &&
+            document.activeElement === firstElement
+        ) {
+            event.preventDefault();
+            lastElement.focus();
+        }
+        else if (
+            !event.shiftKey &&
+            document.activeElement === lastElement
+        ) {
+            event.preventDefault();
+            firstElement.focus();
+        }
+    }
+
+
+    closeButton.addEventListener(
+        "click",
+        closeShockIndexModal
+    );
+
+    document.addEventListener(
+        "keydown",
+        handleShockIndexKeydown
+    );
+
+    closeButton.focus();
 
 
     // ================================
