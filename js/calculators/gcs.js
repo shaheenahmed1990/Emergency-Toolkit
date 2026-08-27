@@ -134,10 +134,7 @@ function openGCSCalculator() {
                         <input type="radio" name="gcsVerbal" value="1">
                         1 — None
                     </label>
-                    <label>
-    <input type="radio" name="gcsVerbal" value="NT">
-    NT — Not testable
-</label>
+
 
                 </div>
 
