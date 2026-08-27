@@ -18,11 +18,15 @@ function openCardiacArrest() {
     modal.innerHTML = `
         <div class="arrest-overlay">
 
-            <div class="arrest-modal">
+            <div
+                class="arrest-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="arrestTitle">
 
                 <div class="arrest-header">
                     <div>
-                        <h2>🚨 Adult Cardiac Arrest</h2>
+                        <h2 id="arrestTitle">🚨 Adult Cardiac Arrest</h2>
                         <p>ALS Quick Reference — ERC 2025</p>
                     </div>
 
@@ -251,11 +255,90 @@ function openCardiacArrest() {
     document.body.appendChild(modal);
 
 
-    document
-        .getElementById("closeCardiacArrest")
-        .addEventListener("click", () => {
-            modal.remove();
-        });
+    const dialog = modal.querySelector('[role="dialog"]');
+    const closeButton =
+        modal.querySelector("#closeCardiacArrest");
+    const previousFocus = document.activeElement;
+
+
+    function closeCardiacArrestModal() {
+
+        document.removeEventListener(
+            "keydown",
+            handleCardiacArrestKeydown
+        );
+
+        modal.remove();
+
+        if (
+            previousFocus &&
+            typeof previousFocus.focus === "function"
+        ) {
+            previousFocus.focus();
+        }
+    }
+
+
+    function handleCardiacArrestKeydown(event) {
+
+        if (event.key === "Escape") {
+            event.preventDefault();
+            closeCardiacArrestModal();
+            return;
+        }
+
+        if (event.key !== "Tab") {
+            return;
+        }
+
+        const focusableElements = Array.from(
+            dialog.querySelectorAll(
+                'button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])'
+            )
+        ).filter(element =>
+            !element.disabled &&
+            element.offsetParent !== null
+        );
+
+        if (!focusableElements.length) {
+            event.preventDefault();
+            closeButton.focus();
+            return;
+        }
+
+        const firstElement = focusableElements[0];
+
+        const lastElement =
+            focusableElements[focusableElements.length - 1];
+
+        if (
+            event.shiftKey &&
+            document.activeElement === firstElement
+        ) {
+            event.preventDefault();
+            lastElement.focus();
+        }
+        else if (
+            !event.shiftKey &&
+            document.activeElement === lastElement
+        ) {
+            event.preventDefault();
+            firstElement.focus();
+        }
+    }
+
+
+    closeButton.addEventListener(
+        "click",
+        closeCardiacArrestModal
+    );
+
+    document.addEventListener(
+        "keydown",
+        handleCardiacArrestKeydown
+    );
+
+    closeButton.focus();
 
 
     document
