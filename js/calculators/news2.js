@@ -18,11 +18,15 @@ function openNEWS2Calculator() {
     modal.innerHTML = `
         <div class="news2-overlay">
 
-            <div class="news2-modal">
+            <div
+                class="news2-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="news2Title">
 
                 <div class="news2-header">
                     <div>
-                        <h2>📊 NEWS2 Calculator</h2>
+                        <h2 id="news2Title">📊 NEWS2 Calculator</h2>
                         <p>National Early Warning Score 2</p>
                     </div>
 
@@ -282,17 +286,88 @@ function openNEWS2Calculator() {
     `;
 
     document.body.appendChild(modal);
+    const dialog = modal.querySelector('[role="dialog"]');
+    const closeButton = modal.querySelector("#closeNEWS2");
+    const previousFocus = document.activeElement;
+
+    function closeNEWS2Modal() {
+
+        document.removeEventListener(
+            "keydown",
+            handleNEWS2Keydown
+        );
+
+        modal.remove();
+
+        if (
+            previousFocus &&
+            typeof previousFocus.focus === "function"
+        ) {
+            previousFocus.focus();
+        }
+    }
 
 
-    // ================================
-    // Close
-    // ================================
+    function handleNEWS2Keydown(event) {
 
-    document
-        .getElementById("closeNEWS2")
-        .addEventListener("click", () => {
-            modal.remove();
-        });
+        if (event.key === "Escape") {
+            event.preventDefault();
+            closeNEWS2Modal();
+            return;
+        }
+
+        if (event.key !== "Tab") {
+            return;
+        }
+
+        const focusableElements = Array.from(
+            dialog.querySelectorAll(
+                'button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])'
+            )
+        ).filter(element =>
+            !element.disabled &&
+            element.offsetParent !== null
+        );
+
+        if (!focusableElements.length) {
+            event.preventDefault();
+            closeButton.focus();
+            return;
+        }
+
+        const firstElement = focusableElements[0];
+
+        const lastElement =
+            focusableElements[focusableElements.length - 1];
+
+        if (
+            event.shiftKey &&
+            document.activeElement === firstElement
+        ) {
+            event.preventDefault();
+            lastElement.focus();
+        }
+        else if (
+            !event.shiftKey &&
+            document.activeElement === lastElement
+        ) {
+            event.preventDefault();
+            firstElement.focus();
+        }
+    }
+
+
+    closeButton.addEventListener(
+        "click",
+        closeNEWS2Modal
+    );
+
+    document.addEventListener(
+        "keydown",
+        handleNEWS2Keydown
+    );
+
+    closeButton.focus();
 
 
     // ================================
