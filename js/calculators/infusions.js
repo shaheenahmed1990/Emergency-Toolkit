@@ -301,34 +301,39 @@ function calculateInfusion(modal) {
         Number(modal.querySelector("#infusionFinalVolume").value);
 
 
-    if (!dose || !drugAmountMg || !finalVolumeMl) {
-
-        alert(
-            "Please complete the dose and concentration fields."
-        );
-
-        return;
-    }
-
+    const validRanges = [
+        ["Dose", dose, 0.000001, Infinity],
+        ["Drug amount", drugAmountMg, 0.000001, Infinity],
+        ["Final volume", finalVolumeMl, 0.000001, Infinity]
+    ];
 
     if (
-        (doseType === "mcgkgmin" || doseType === "mgkgmin")
-        && !weight
+        doseType === "mcgkgmin" ||
+        doseType === "mgkgmin"
     ) {
-
-        alert(
-            "Weight is required for a weight-based dose."
+        validRanges.push(
+            ["Weight", weight, 0.1, 500]
         );
-
-        return;
     }
 
+    const invalidField = validRanges.find(
+        ([, value, min, max]) =>
+            !Number.isFinite(value) ||
+            value < min ||
+            value > max
+    );
 
-    if (drugAmountMg <= 0 || finalVolumeMl <= 0) {
+    if (invalidField) {
 
-        alert(
-            "Drug amount and final volume must be greater than zero."
-        );
+        const [label, value, min, max] = invalidField;
+
+        if (!Number.isFinite(value)) {
+            alert(`Please enter a valid ${label}.`);
+        } else if (label === "Weight") {
+            alert("Weight must be between 0.1 and 500 kg.");
+        } else {
+            alert(`${label} must be greater than zero.`);
+        }
 
         return;
     }
