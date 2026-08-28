@@ -18,12 +18,16 @@ function openGIBleeding() {
     modal.innerHTML = `
         <div class="gi-bleeding-overlay">
 
-            <div class="gi-bleeding-modal">
+            <div
+                class="gi-bleeding-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="giBleedingTitle">
 
                 <div class="gi-bleeding-header">
 
                     <div>
-                        <h2>🩸 Acute GI Bleeding</h2>
+                        <h2 id="giBleedingTitle">🩸 Acute GI Bleeding</h2>
                         <p>Recognition & Initial Management Quick Reference</p>
                     </div>
 
@@ -301,18 +305,38 @@ function openGIBleeding() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closeGIBleeding")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeGIBleedingModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeGIBleeding"),
+            onEscape: closeGIBleedingModal
         });
+
+
+    modal
+        .querySelector("#closeGIBleeding")
+        .addEventListener(
+            "click",
+            closeGIBleedingModal
+        );
 
     document
         .querySelector(".gi-bleeding-overlay")
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("gi-bleeding-overlay")) {
-                modal.remove();
+                closeGIBleedingModal();
             }
 
         });
