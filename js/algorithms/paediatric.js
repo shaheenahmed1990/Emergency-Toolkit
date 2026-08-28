@@ -18,11 +18,15 @@ function openPaediatric() {
     modal.innerHTML = `
         <div class="paediatric-overlay">
 
-            <div class="paediatric-modal">
+            <div
+                class="paediatric-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="paediatricTitle">
 
                 <div class="paediatric-header">
                     <div>
-                        <h2>👶 Paediatric Emergency</h2>
+                        <h2 id="paediatricTitle">👶 Paediatric Emergency</h2>
                         <p>Recognition & Initial Management Quick Reference</p>
                     </div>
 
@@ -392,18 +396,38 @@ function openPaediatric() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closePaediatric")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closePaediatricModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closePaediatric"),
+            onEscape: closePaediatricModal
         });
+
+
+    modal
+        .querySelector("#closePaediatric")
+        .addEventListener(
+            "click",
+            closePaediatricModal
+        );
 
     document
         .querySelector(".paediatric-overlay")
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("paediatric-overlay")) {
-                modal.remove();
+                closePaediatricModal();
             }
 
         });
