@@ -18,12 +18,16 @@ function openAsthma() {
     modal.innerHTML = `
         <div class="asthma-overlay">
 
-            <div class="asthma-modal">
+            <div
+                class="asthma-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="asthmaTitle">
 
                 <div class="asthma-header">
 
                     <div>
-                        <h2>🫁 Acute Asthma</h2>
+                        <h2 id="asthmaTitle">🫁 Acute Asthma</h2>
                         <p>Adult Severe / Life-Threatening Asthma Quick Reference</p>
                     </div>
 
@@ -291,18 +295,38 @@ function openAsthma() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closeAsthma")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeAsthmaModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeAsthma"),
+            onEscape: closeAsthmaModal
         });
+
+
+    modal
+        .querySelector("#closeAsthma")
+        .addEventListener(
+            "click",
+            closeAsthmaModal
+        );
 
     document
         .querySelector(".asthma-overlay")
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("asthma-overlay")) {
-                modal.remove();
+                closeAsthmaModal();
             }
 
         });
