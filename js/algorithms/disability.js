@@ -18,11 +18,15 @@ function openDisability() {
     modal.innerHTML = `
         <div class="disability-overlay">
 
-            <div class="disability-modal">
+            <div
+                class="disability-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="disabilityTitle">
 
                 <div class="disability-header">
                     <div>
-                        <h2>🧠 Adult Emergency Disability</h2>
+                        <h2 id="disabilityTitle">🧠 Adult Emergency Disability</h2>
                         <p>Neurological Assessment Quick Reference</p>
                     </div>
 
@@ -213,17 +217,37 @@ function openDisability() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closeDisability")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeDisabilityModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeDisability"),
+            onEscape: closeDisabilityModal
         });
+
+
+    modal
+        .querySelector("#closeDisability")
+        .addEventListener(
+            "click",
+            closeDisabilityModal
+        );
 
     document
         .querySelector(".disability-overlay")
         .addEventListener("click", (event) => {
             if (event.target.classList.contains("disability-overlay")) {
-                modal.remove();
+                closeDisabilityModal();
             }
         });
 }
