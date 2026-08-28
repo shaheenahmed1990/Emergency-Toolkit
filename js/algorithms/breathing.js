@@ -17,11 +17,15 @@ function openBreathing() {
     modal.innerHTML = `
         <div class="breathing-overlay">
 
-            <div class="breathing-modal">
+            <div
+                class="breathing-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="breathingTitle">
 
                 <div class="breathing-header">
                     <div>
-                        <h2>🫁 Adult Emergency Breathing</h2>
+                        <h2 id="breathingTitle">🫁 Adult Emergency Breathing</h2>
                         <p>Assessment & Management Quick Reference</p>
                     </div>
 
@@ -192,17 +196,40 @@ function openBreathing() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closeBreathing")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeBreathingModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeBreathing"),
+            onEscape: closeBreathingModal
         });
+
+
+    modal
+        .querySelector("#closeBreathing")
+        .addEventListener(
+            "click",
+            closeBreathingModal
+        );
 
     document
         .querySelector(".breathing-overlay")
         .addEventListener("click", (event) => {
+
             if (event.target.classList.contains("breathing-overlay")) {
-                modal.remove();
+                closeBreathingModal();
             }
+
         });
+
 }
