@@ -312,7 +312,7 @@ function openInfusionsCalculator() {
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("infusions-overlay")) {
-                modal.remove();
+                closeInfusionsModal();
             }
 
         });
