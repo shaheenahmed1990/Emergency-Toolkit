@@ -18,7 +18,11 @@ function openAcuteAbdomen() {
     modal.innerHTML = `
         <div class="acute-abdomen-overlay">
 
-            <div class="acute-abdomen-modal">
+            <div
+                class="acute-abdomen-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="acuteAbdomenTitle">
 
                 <div class="acute-abdomen-header">
 
@@ -403,18 +407,40 @@ function openAcuteAbdomen() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closeAcuteAbdomen")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeAcuteAbdomenModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector(
+                "#closeAcuteAbdomen"
+            ),
+            onEscape: closeAcuteAbdomenModal
         });
+
+
+    modal
+        .querySelector("#closeAcuteAbdomen")
+        .addEventListener(
+            "click",
+            closeAcuteAbdomenModal
+        );
 
     document
         .querySelector(".acute-abdomen-overlay")
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("acute-abdomen-overlay")) {
-                modal.remove();
+                closeAcuteAbdomenModal();
             }
 
         });
