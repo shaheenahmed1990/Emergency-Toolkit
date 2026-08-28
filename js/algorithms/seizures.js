@@ -18,12 +18,16 @@ function openSeizures() {
     modal.innerHTML = `
         <div class="seizures-overlay">
 
-            <div class="seizures-modal">
+            <div
+                class="seizures-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="seizuresTitle">
 
                 <div class="seizures-header">
 
                     <div>
-                        <h2>🧠 Seizures & Status Epilepticus</h2>
+                        <h2 id="seizuresTitle">🧠 Seizures & Status Epilepticus</h2>
                         <p>Recognition & Initial Management Quick Reference</p>
                     </div>
 
@@ -287,11 +291,31 @@ function openSeizures() {
     document.body.appendChild(modal);
 
 
-    document
-        .getElementById("closeSeizures")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeSeizuresModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeSeizures"),
+            onEscape: closeSeizuresModal
         });
+
+
+    modal
+        .querySelector("#closeSeizures")
+        .addEventListener(
+            "click",
+            closeSeizuresModal
+        );
 
 
     document
@@ -299,7 +323,7 @@ function openSeizures() {
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("seizures-overlay")) {
-                modal.remove();
+                closeSeizuresModal();
             }
 
         });
