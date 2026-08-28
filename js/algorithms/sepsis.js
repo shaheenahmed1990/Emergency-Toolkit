@@ -18,12 +18,16 @@ function openSepsis() {
     modal.innerHTML = `
         <div class="sepsis-overlay">
 
-            <div class="sepsis-modal">
+            <div
+                class="sepsis-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="sepsisTitle">
 
                 <div class="sepsis-header">
 
                     <div>
-                        <h2>🦠 Adult Sepsis</h2>
+                        <h2 id="sepsisTitle">🦠 Adult Sepsis</h2>
                         <p>Recognition & Management Quick Reference</p>
                     </div>
 
@@ -300,11 +304,31 @@ function openSepsis() {
     document.body.appendChild(modal);
 
 
-    document
-        .getElementById("closeSepsis")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeSepsisModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeSepsis"),
+            onEscape: closeSepsisModal
         });
+
+
+    modal
+        .querySelector("#closeSepsis")
+        .addEventListener(
+            "click",
+            closeSepsisModal
+        );
 
 
     document
@@ -314,7 +338,7 @@ function openSepsis() {
             if (
                 event.target.classList.contains("sepsis-overlay")
             ) {
-                modal.remove();
+                closeSepsisModal();
             }
 
         });
