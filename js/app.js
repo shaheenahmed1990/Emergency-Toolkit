@@ -48,3 +48,135 @@ document.addEventListener("click", (event) => {
     }
 
 });
+// ================================
+// SHARED MODAL ACCESSIBILITY
+// ================================
+
+function setupAccessibleModal(modal, options = {}) {
+
+    const dialog =
+        options.dialog ||
+        modal.querySelector('[role="dialog"]');
+
+    const closeButton =
+        options.closeButton ||
+        dialog?.querySelector("button");
+
+    if (!modal || !dialog || !closeButton) {
+
+        console.warn(
+            "Accessible modal setup skipped:",
+            {
+                modal,
+                dialog,
+                closeButton
+            }
+        );
+
+        return () => {};
+    }
+
+
+    const previousFocus = document.activeElement;
+
+
+    function getFocusableElements() {
+
+        return Array.from(
+            dialog.querySelectorAll(
+                'button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])'
+            )
+        ).filter(element =>
+            !element.disabled &&
+            element.offsetParent !== null
+        );
+    }
+
+
+    function handleKeydown(event) {
+
+        if (event.key === "Escape") {
+
+            event.preventDefault();
+
+            if (typeof options.onEscape === "function") {
+                options.onEscape();
+            }
+
+            return;
+        }
+
+
+        if (event.key !== "Tab") {
+            return;
+        }
+
+
+        const focusable =
+            getFocusableElements();
+
+
+        if (!focusable.length) {
+
+            event.preventDefault();
+            closeButton.focus();
+
+            return;
+        }
+
+
+        const first = focusable[0];
+
+        const last =
+            focusable[focusable.length - 1];
+
+
+        if (
+            event.shiftKey &&
+            document.activeElement === first
+        ) {
+
+            event.preventDefault();
+            last.focus();
+
+        }
+        else if (
+            !event.shiftKey &&
+            document.activeElement === last
+        ) {
+
+            event.preventDefault();
+            first.focus();
+        }
+    }
+
+
+    document.addEventListener(
+        "keydown",
+        handleKeydown
+    );
+
+
+    closeButton.focus();
+
+
+    function cleanupAccessibleModal() {
+
+        document.removeEventListener(
+            "keydown",
+            handleKeydown
+        );
+
+
+        if (
+            previousFocus &&
+            typeof previousFocus.focus === "function" &&
+            document.contains(previousFocus)
+        ) {
+            previousFocus.focus();
+        }
+    }
+
+
+    return cleanupAccessibleModal;
+}

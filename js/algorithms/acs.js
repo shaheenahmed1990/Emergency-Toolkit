@@ -18,12 +18,16 @@ function openACS() {
     modal.innerHTML = `
         <div class="acs-overlay">
 
-            <div class="acs-modal">
+            <div
+                class="acs-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="acsTitle">
 
                 <div class="acs-header">
 
                     <div>
-                        <h2>❤️ Acute Coronary Syndrome</h2>
+                        <h2 id="acsTitle">❤️ Acute Coronary Syndrome</h2>
                         <p>Adult Recognition & Initial Management Quick Reference</p>
                     </div>
 
@@ -405,18 +409,37 @@ function openACS() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closeACS")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeACSModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeACS"),
+            onEscape: closeACSModal
         });
 
+
+    modal
+        .querySelector("#closeACS")
+        .addEventListener(
+            "click",
+            closeACSModal
+        );
     document
         .querySelector(".acs-overlay")
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("acs-overlay")) {
-                modal.remove();
+                closeACSModal();
             }
 
         });
