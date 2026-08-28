@@ -18,12 +18,16 @@ function openBowelObstruction() {
     modal.innerHTML = `
         <div class="bowel-obstruction-overlay">
 
-            <div class="bowel-obstruction-modal">
+            <div
+                class="bowel-obstruction-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="bowelObstructionTitle">
 
                 <div class="bowel-obstruction-header">
 
                     <div>
-                        <h2>🔄 Bowel Obstruction</h2>
+                        <h2 id="bowelObstructionTitle">🔄 Bowel Obstruction</h2>
                         <p>Adult Emergency Assessment Quick Reference</p>
                     </div>
 
@@ -354,18 +358,40 @@ function openBowelObstruction() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closeBowelObstruction")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeBowelObstructionModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector(
+                "#closeBowelObstruction"
+            ),
+            onEscape: closeBowelObstructionModal
         });
+
+
+    modal
+        .querySelector("#closeBowelObstruction")
+        .addEventListener(
+            "click",
+            closeBowelObstructionModal
+        );
 
     document
         .querySelector(".bowel-obstruction-overlay")
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("bowel-obstruction-overlay")) {
-                modal.remove();
+                closeBowelObstructionModal();
             }
 
         });
