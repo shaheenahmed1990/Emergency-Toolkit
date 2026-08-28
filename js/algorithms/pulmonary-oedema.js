@@ -18,12 +18,16 @@ function openPulmonaryOedema() {
     modal.innerHTML = `
         <div class="pulmonary-oedema-overlay">
 
-            <div class="pulmonary-oedema-modal">
+            <div
+                class="pulmonary-oedema-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="pulmonaryOedemaTitle">
 
                 <div class="pulmonary-oedema-header">
 
                     <div>
-                        <h2>🫀 Acute Pulmonary Oedema</h2>
+                        <h2 id="pulmonaryOedemaTitle">🫀 Acute Pulmonary Oedema</h2>
                         <p>Adult Acute Cardiogenic Pulmonary Oedema Quick Reference</p>
                     </div>
 
@@ -287,18 +291,40 @@ function openPulmonaryOedema() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closePulmonaryOedema")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closePulmonaryOedemaModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector(
+                "#closePulmonaryOedema"
+            ),
+            onEscape: closePulmonaryOedemaModal
         });
+
+
+    modal
+        .querySelector("#closePulmonaryOedema")
+        .addEventListener(
+            "click",
+            closePulmonaryOedemaModal
+        );
 
     document
         .querySelector(".pulmonary-oedema-overlay")
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("pulmonary-oedema-overlay")) {
-                modal.remove();
+                closePulmonaryOedemaModal();
             }
 
         });
