@@ -346,7 +346,7 @@ function openCardiacArrest() {
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("arrest-overlay")) {
-                modal.remove();
+                closeCardiacArrestModal();
             }
 
         });
