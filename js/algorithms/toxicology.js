@@ -18,12 +18,16 @@ function openToxicology() {
     modal.innerHTML = `
         <div class="toxicology-overlay">
 
-            <div class="toxicology-modal">
+            <div
+                class="toxicology-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="toxicologyTitle">
 
                 <div class="toxicology-header">
 
                     <div>
-                        <h2>☣️ Emergency Toxicology</h2>
+                        <h2 id="toxicologyTitle">☣️ Emergency Toxicology</h2>
                         <p>Poisoning & Overdose Quick Reference</p>
                     </div>
 
@@ -295,11 +299,31 @@ function openToxicology() {
     document.body.appendChild(modal);
 
 
-    document
-        .getElementById("closeToxicology")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeToxicologyModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeToxicology"),
+            onEscape: closeToxicologyModal
         });
+
+
+    modal
+        .querySelector("#closeToxicology")
+        .addEventListener(
+            "click",
+            closeToxicologyModal
+        );
 
 
     document
@@ -307,7 +331,7 @@ function openToxicology() {
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("toxicology-overlay")) {
-                modal.remove();
+                closeToxicologyModal();
             }
 
         });
