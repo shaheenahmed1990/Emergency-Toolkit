@@ -19,12 +19,16 @@ function openEmergencyDrugs() {
     modal.innerHTML = `
         <div class="drugs-overlay">
 
-            <div class="drugs-modal">
+            <div
+                class="drugs-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="drugsTitle">
 
                 <div class="drugs-header">
 
                     <div>
-                        <h2>💊 Adult Emergency Drugs</h2>
+                        <h2 id="drugsTitle">💊 Adult Emergency Drugs</h2>
                         <p>Acute Care Quick Reference</p>
                     </div>
 
@@ -287,11 +291,31 @@ function openEmergencyDrugs() {
     document.body.appendChild(modal);
 
 
-    document
-        .getElementById("closeEmergencyDrugs")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeEmergencyDrugsModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeEmergencyDrugs"),
+            onEscape: closeEmergencyDrugsModal
         });
+
+
+    modal
+        .querySelector("#closeEmergencyDrugs")
+        .addEventListener(
+            "click",
+            closeEmergencyDrugsModal
+        );
 
 
     document
@@ -299,7 +323,7 @@ function openEmergencyDrugs() {
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("drugs-overlay")) {
-                modal.remove();
+            closeEmergencyDrugsModal();
             }
 
         });
