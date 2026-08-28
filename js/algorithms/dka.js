@@ -18,12 +18,16 @@ function openDKA() {
     modal.innerHTML = `
         <div class="dka-overlay">
 
-            <div class="dka-modal">
+            <div
+                class="dka-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="dkaTitle">
 
                 <div class="dka-header">
 
                     <div>
-                        <h2>🩸 Diabetic Ketoacidosis (DKA)</h2>
+                        <h2 id="dkaTitle">🩸 Diabetic Ketoacidosis (DKA)</h2>
                         <p>Adult Recognition & Initial Management Quick Reference</p>
                     </div>
 
@@ -511,18 +515,38 @@ function openDKA() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closeDKA")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeDKAModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeDKA"),
+            onEscape: closeDKAModal
         });
+
+
+    modal
+        .querySelector("#closeDKA")
+        .addEventListener(
+            "click",
+            closeDKAModal
+        );
 
     document
         .querySelector(".dka-overlay")
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("dka-overlay")) {
-                modal.remove();
+                closeDKAModal();
             }
 
         });
