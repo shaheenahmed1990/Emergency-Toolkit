@@ -18,12 +18,16 @@ function openPancreatitis() {
     modal.innerHTML = `
         <div class="pancreatitis-overlay">
 
-            <div class="pancreatitis-modal">
+            <div
+                class="pancreatitis-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="pancreatitisTitle">
 
                 <div class="pancreatitis-header">
 
                     <div>
-                        <h2>🩺 Acute Pancreatitis</h2>
+                        <h2 id="pancreatitisTitle">🩺 Acute Pancreatitis</h2>
                         <p>Recognition & Initial Management Quick Reference</p>
                     </div>
 
@@ -349,18 +353,38 @@ function openPancreatitis() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closePancreatitis")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closePancreatitisModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closePancreatitis"),
+            onEscape: closePancreatitisModal
         });
+
+
+    modal
+        .querySelector("#closePancreatitis")
+        .addEventListener(
+            "click",
+            closePancreatitisModal
+        );
 
     document
         .querySelector(".pancreatitis-overlay")
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("pancreatitis-overlay")) {
-                modal.remove();
+                closePancreatitisModal();
             }
 
         });
