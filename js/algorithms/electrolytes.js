@@ -18,12 +18,16 @@ function openElectrolytes() {
     modal.innerHTML = `
         <div class="electrolytes-overlay">
 
-            <div class="electrolytes-modal">
+            <div
+                class="electrolytes-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="electrolytesTitle">
 
                 <div class="electrolytes-header">
 
                     <div>
-                        <h2>⚡ Electrolyte Emergencies</h2>
+                        <h2 id="electrolytesTitle">⚡ Electrolyte Emergencies</h2>
                         <p>Adult Recognition & Initial Management</p>
                     </div>
 
@@ -362,11 +366,33 @@ function openElectrolytes() {
     document.body.appendChild(modal);
 
 
-    document
-        .getElementById("closeElectrolytes")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeElectrolytesModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector(
+                "#closeElectrolytes"
+            ),
+            onEscape: closeElectrolytesModal
         });
+
+
+    modal
+        .querySelector("#closeElectrolytes")
+        .addEventListener(
+            "click",
+            closeElectrolytesModal
+        );
 
 
     document
@@ -374,7 +400,7 @@ function openElectrolytes() {
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("electrolytes-overlay")) {
-                modal.remove();
+                closeElectrolytesModal();
             }
 
         });
