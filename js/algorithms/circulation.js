@@ -17,12 +17,16 @@ function openCirculation() {
 
     modal.innerHTML = `
         <div class="circulation-overlay">
+            <div
+                class="circulation-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="circulationTitle">
 
-            <div class="circulation-modal">
 
                 <div class="circulation-header">
                     <div>
-                        <h2>❤️ Adult Emergency Circulation</h2>
+                        <h2 id="circulationTitle">❤️ Adult Emergency Circulation</h2>
                         <p>Assessment & Shock Management Quick Reference</p>
                     </div>
 
@@ -271,11 +275,31 @@ function openCirculation() {
     document.body.appendChild(modal);
 
 
-    document
-        .getElementById("closeCirculation")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeCirculationModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeCirculation"),
+            onEscape: closeCirculationModal
         });
+
+
+    modal
+        .querySelector("#closeCirculation")
+        .addEventListener(
+            "click",
+            closeCirculationModal
+        );
 
 
     document
@@ -283,7 +307,7 @@ function openCirculation() {
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("circulation-overlay")) {
-                modal.remove();
+                closeCirculationModal();
             }
 
         });
