@@ -18,12 +18,16 @@ function openCOPD() {
     modal.innerHTML = `
         <div class="copd-overlay">
 
-            <div class="copd-modal">
+            <div
+                class="copd-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="copdTitle">
 
                 <div class="copd-header">
 
                     <div>
-                        <h2>🫁 COPD Exacerbation</h2>
+                        <h2 id="copdTitle">🫁 COPD Exacerbation</h2>
                         <p>Adult Acute Exacerbation Quick Reference</p>
                     </div>
 
@@ -275,18 +279,38 @@ function openCOPD() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closeCOPD")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeCOPDModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeCOPD"),
+            onEscape: closeCOPDModal
         });
+
+
+    modal
+        .querySelector("#closeCOPD")
+        .addEventListener(
+            "click",
+            closeCOPDModal
+        );
 
     document
         .querySelector(".copd-overlay")
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("copd-overlay")) {
-                modal.remove();
+                closeCOPDModal();
             }
 
         });
