@@ -17,12 +17,15 @@ function openTrauma() {
     modal.innerHTML = `
         <div class="trauma-overlay">
 
-            <div class="trauma-modal">
-
+            <div
+                class="trauma-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="traumaTitle">
                 <div class="trauma-header">
 
                     <div>
-                        <h2>🩸 Adult Major Trauma</h2>
+                        <h2 id="traumaTitle">🩸 Adult Major Trauma</h2>
                         <p>ABCDE Quick Reference</p>
                     </div>
 
@@ -248,11 +251,31 @@ function openTrauma() {
     document.body.appendChild(modal);
 
 
-    document
-        .getElementById("closeTrauma")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeTraumaModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeTrauma"),
+            onEscape: closeTraumaModal
         });
+
+
+    modal
+        .querySelector("#closeTrauma")
+        .addEventListener(
+            "click",
+            closeTraumaModal
+        );
 
 
     document
@@ -262,7 +285,7 @@ function openTrauma() {
             if (
                 event.target.classList.contains("trauma-overlay")
             ) {
-                modal.remove();
+                closeTraumaModal();
             }
 
         });
