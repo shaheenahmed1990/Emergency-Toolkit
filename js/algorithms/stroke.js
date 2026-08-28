@@ -18,12 +18,16 @@ function openStroke() {
     modal.innerHTML = `
         <div class="stroke-overlay">
 
-            <div class="stroke-modal">
+            <div
+                class="stroke-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="strokeTitle">
 
                 <div class="stroke-header">
 
                     <div>
-                        <h2>🧠 Acute Stroke</h2>
+                        <h2 id="strokeTitle">🧠 Acute Stroke</h2>
                         <p>Recognition & Initial Management Quick Reference</p>
                     </div>
 
@@ -273,11 +277,31 @@ function openStroke() {
     document.body.appendChild(modal);
 
 
-    document
-        .getElementById("closeStroke")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeStrokeModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeStroke"),
+            onEscape: closeStrokeModal
         });
+
+
+    modal
+        .querySelector("#closeStroke")
+        .addEventListener(
+            "click",
+            closeStrokeModal
+        );
 
 
     document
@@ -285,7 +309,7 @@ function openStroke() {
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("stroke-overlay")) {
-                modal.remove();
+                closeStrokeModal();
             }
 
         });
