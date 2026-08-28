@@ -17,12 +17,16 @@ function openAirway() {
     modal.innerHTML = `
         <div class="airway-overlay">
 
-            <div class="airway-modal">
+            <div
+                class="airway-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="airwayTitle">
 
                 <div class="airway-header">
 
                     <div>
-                        <h2>🫁 Adult Emergency Airway</h2>
+                        <h2 id="airwayTitle">🫁 Adult Emergency Airway</h2>
                         <p>Assessment & Management Quick Reference</p>
                     </div>
 
@@ -294,11 +298,31 @@ function openAirway() {
     document.body.appendChild(modal);
 
 
-    document
-        .getElementById("closeAirway")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeAirwayModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeAirway"),
+            onEscape: closeAirwayModal
         });
+
+
+    modal
+        .querySelector("#closeAirway")
+        .addEventListener(
+            "click",
+            closeAirwayModal
+        );
 
 
     document
@@ -308,7 +332,7 @@ function openAirway() {
             if (
                 event.target.classList.contains("airway-overlay")
             ) {
-                modal.remove();
+                closeAirwayModal();
             }
 
         });
