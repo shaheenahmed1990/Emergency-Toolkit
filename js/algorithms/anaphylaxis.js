@@ -18,12 +18,16 @@ function openAnaphylaxis() {
     modal.innerHTML = `
         <div class="anaphylaxis-overlay">
 
-            <div class="anaphylaxis-modal">
+            <div
+                class="anaphylaxis-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="anaphylaxisTitle">
 
                 <div class="anaphylaxis-header">
 
                     <div>
-                        <h2>⚠️ Adult Anaphylaxis</h2>
+                        <h2 id="anaphylaxisTitle">⚠️ Adult Anaphylaxis</h2>
                         <p>Recognition & Initial Management Quick Reference</p>
                     </div>
 
@@ -312,11 +316,33 @@ function openAnaphylaxis() {
     document.body.appendChild(modal);
 
 
-    document
-        .getElementById("closeAnaphylaxis")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeAnaphylaxisModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector(
+                "#closeAnaphylaxis"
+            ),
+            onEscape: closeAnaphylaxisModal
         });
+
+
+    modal
+        .querySelector("#closeAnaphylaxis")
+        .addEventListener(
+            "click",
+            closeAnaphylaxisModal
+        );
 
 
     document
@@ -324,7 +350,7 @@ function openAnaphylaxis() {
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("anaphylaxis-overlay")) {
-                modal.remove();
+                closeAnaphylaxisModal();
             }
 
         });
