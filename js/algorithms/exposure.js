@@ -18,11 +18,15 @@ function openExposure() {
     modal.innerHTML = `
         <div class="exposure-overlay">
 
-            <div class="exposure-modal">
+            <div
+                class="exposure-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="exposureTitle">
 
                 <div class="exposure-header">
                     <div>
-                        <h2>🌡️ Adult Emergency Exposure</h2>
+                        <h2 id="exposureTitle">🌡️ Adult Emergency Exposure</h2>
                         <p>Exposure & Environment Quick Reference</p>
                     </div>
 
@@ -240,18 +244,38 @@ function openExposure() {
 
     document.body.appendChild(modal);
 
-    document
-        .getElementById("closeExposure")
-        .addEventListener("click", () => {
-            modal.remove();
+    let cleanupAccessibleModal;
+
+    function closeExposureModal() {
+
+        if (cleanupAccessibleModal) {
+            cleanupAccessibleModal();
+        }
+
+        modal.remove();
+    }
+
+
+    cleanupAccessibleModal =
+        setupAccessibleModal(modal, {
+            closeButton: modal.querySelector("#closeExposure"),
+            onEscape: closeExposureModal
         });
+
+
+    modal
+        .querySelector("#closeExposure")
+        .addEventListener(
+            "click",
+            closeExposureModal
+        );
 
     document
         .querySelector(".exposure-overlay")
         .addEventListener("click", (event) => {
 
             if (event.target.classList.contains("exposure-overlay")) {
-                modal.remove();
+                closeExposureModal();
             }
 
         });
